@@ -1,0 +1,67 @@
+
+
+body {
+  /* background-image: url(' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1wlWvp1R-uFK_xDrdvsaG2dMC28sjdlOmJQ&usqp=CAU'); */
+  background-color: papayawhip;
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ 
+}
+.card{
+  border: 2px solid black; 
+  padding: 20px;
+  max-width: 400px; 
+  text-align: center;
+  font-size: 15px;
+}
+
+.cardtitle{
+  font-size: 20px;
+  font-style:oblique; 
+}
+
+.navbar{
+  background-color: goldenrod;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  top: 0;
+}
+
+.dropdown{
+  display: flex;
+  
+}
+
+.mr-2{
+  margin: 5px;
+}
+
+.chapterPage{
+  /* background-color: light gray; */
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 100%;
+}
+
