@@ -39,7 +39,13 @@ export const Register = () => {
     return (
         <div>
         <Row >
-            <form onSubmit={(e)=>signUp(e)}>
+            <form onSubmit={(e)=>signUp(e)} style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh', // Adjust height if needed
+      }}>
                 <h2>Create User Account</h2>
                 <input
                 type="text"

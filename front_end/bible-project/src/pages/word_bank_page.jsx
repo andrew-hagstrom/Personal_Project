@@ -1,37 +1,31 @@
-export const WordBank = () => {
-    return (
-      <div id="home-page">
-        <h2>Word Bank</h2>
-        <div>
-          <p>
-           You have no words to display. Add to your word bank to populate this page. 
-          </p>
-        </div>
-      </div>
-    );
-  };
-  
-  export default WordBank;
 
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from 'react-router-dom';
+import '../App.css';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import WordCard from '../components/WordCard';
+import { useOutletContext } from 'react-router-dom';
 
-// const FavoritesPage = () => {
-//   const { favorites, setFavorites } = useOutletContext();
-//   // name, image, id, favorites, setFavorites
-//   return (
-//     <>
-//       <h2>Favorites</h2>
-//       {favorites.map((favorite) => (
-//         <CharCard
-//           key={favorite.id}
-//           id={favorite.id}
-//           name={favorite.name}
-//           image={favorite.image}
-//           favorites={favorites}
-//           setFavorites={setFavorites}
-//         />
-//       ))}
-//     </>
-//   );
-// };
+const WordBankPage = () => {
+  const { favorites, setFavorites } = useOutletContext();
 
-// export default FavoritesPage;
+  return (
+    <>
+      <h2>Word Bank</h2>
+      {favorites.map((favorite) => (
+        <WordCard
+          key={favorite.id}
+          id={favorite.id}
+          word={favorite.word}
+          morphology={favorite.morphology}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
+      ))}
+    </>
+  );
+};
+
+export default WordBankPage;

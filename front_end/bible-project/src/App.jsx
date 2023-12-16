@@ -14,6 +14,7 @@ import { userapi } from "./utilities";
 export default function App() {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
+  const [favorites, setFavorites] = useState([])
 
   const getInfo = async() => {
     let token = localStorage.getItem('token') 
@@ -29,6 +30,10 @@ export default function App() {
     getInfo()
   }, [])
 
+  useEffect(()=>{
+    console.log(favorites)
+  }, [favorites])
+
   console.log(user)
   return (
      <>
@@ -42,7 +47,7 @@ export default function App() {
       {user ? <Navbar/>
       : <div></div>
     }
-    <Outlet context={{user, setUser}}/>
+    <Outlet context={{user, setUser, favorites, setFavorites}}/>
     </Container>
     </div>
    

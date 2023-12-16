@@ -11,6 +11,7 @@ from rest_framework.status import (
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
+from wordbank_app.models import WordBank
 
 
 class Sign_up(APIView):
@@ -20,6 +21,8 @@ class Sign_up(APIView):
             data["username"] = request.data["email"]
             new_user = User.objects.create_user(**data)
             new_token = Token.objects.create(user=new_user)
+            wb = WordBank(user=new_user)
+            wb.save()
             return Response(
                 {"email": new_user.email, "token": new_token.key},
                 status=HTTP_201_CREATED,

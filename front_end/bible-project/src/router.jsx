@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/home_page";
-import {WordBank} from "./pages/word_bank_page";
+import WordBankPage from "./pages/word_bank_page";
 import ChapterPage from "./pages/chapter_page";
 import VersePage from "./pages/verse_page";
 import Translation from "./pages/translation_page";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "wordbank/",
-        element: <WordBank/>,
+        element: <WordBankPage/>,
       },
       {
         path: "translation/",

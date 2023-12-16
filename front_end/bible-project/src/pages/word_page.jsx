@@ -5,15 +5,18 @@ import { useParams } from 'react-router-dom';
 import '../App.css';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useOutletContext } from "react-router-dom";
+import WordCard from '../components/WordCard.jsx'
 
 const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
+  // const [word, setWord] = useState([])
   const { word } = useParams();
-  // const decodedGreekWord = decodeURIComponent(word);
-
+  const {favorites, setFavorites} = useOutletContext()
+  console.log(wordData)
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchWordData = async () => {
       try {
         let token = localStorage.getItem("token")
         axios.defaults.headers.common['Authorization'] = `Token ${token}`;
@@ -24,22 +27,39 @@ const WordPage = () => {
       }
     };
 
-    fetchData();
+    fetchWordData();
   }, [word]);
 
+  //post method here
+
+
+
   return (
-    <div className = 'cardcontainer'>
-      <Card className = 'card'>
-      <Card.Body>
-        <Card.Title className='cardtitle'>Word:{word}</Card.Title>
-        <Card.Text>
-          {wordData}
-        </Card.Text>
-        <Button>Add to Word Bank</Button>
-      </Card.Body>
-    </Card></div>
+    <>
+      <h2 style={{margin:"3vmin 0"}}>Word</h2>
+        <WordCard
+          word={word}
+          morphology={wordData}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
+    </>
   );
 };
+
+//   return (
+//     <div className = 'cardcontainer'>
+//       <Card className = 'card'>
+//       <Card.Body>
+//         <Card.Title className='cardtitle'>Word:{word}</Card.Title>
+//         <Card.Text>
+//           {wordData}
+//         </Card.Text>
+//         <Button>Add to Word Bank</Button>
+//       </Card.Body>
+//     </Card></div>
+//   );
+// };
 
 export default WordPage;
 
