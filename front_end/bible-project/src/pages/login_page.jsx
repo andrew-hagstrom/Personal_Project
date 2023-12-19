@@ -30,6 +30,7 @@ const LoginPage = () => {
 
     // setUser(response.data.user);
     navigate("/");
+    window.location.reload();
   };
 
   const handleSignupClick = () => {

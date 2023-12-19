@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import WordBank
+from .views import WBInfo
 
 urlpatterns = [
-# path("", Info.as_view()),
-path('<int:word_bank_id>', WordBank.as_view()), 
+    path('', WBInfo.as_view(), name='wordbank info')
+    # path('<int:id>/', WB.as_view(), name='wordbank'),
 ]

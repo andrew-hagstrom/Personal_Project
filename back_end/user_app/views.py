@@ -48,7 +48,6 @@ class Log_in(APIView):
             print(e)
             return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
         
-    
 class UserPermissions(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]

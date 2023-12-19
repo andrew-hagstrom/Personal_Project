@@ -9,13 +9,13 @@ import '../App.css';
 export const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const {user, setUser} = useOutletContext(userContext)
 
 
     const navigate = useNavigate();
 
     const signUp = async (e) => {
         e.preventDefault();
+        navigate("/login/");
         const data = { email, password };
         const response = await api
             .post("v1/users/signup/", data)
@@ -30,21 +30,17 @@ export const Register = () => {
         api.defaults.headers.common["Authorization"] = `Token ${token}`
         localStorage.setItem("token", token);
         localStorage.setItem("email", userEmail);
-        console.log(user)
+        
         setUser(True)
-        console.log(user)
-        navigate("/");
+       
+       
     }
 
     return (
-        <div>
+        <div className = "signup">
         <Row >
             <form onSubmit={(e)=>signUp(e)} style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100vh', // Adjust height if needed
+            
       }}>
                 <h2>Create User Account</h2>
                 <input

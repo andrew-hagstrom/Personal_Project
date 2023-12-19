@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Item
+from .models import GreekWord
 
 class GreekWordSerializer(ModelSerializer):
     class Meta:
-        model = Item
-        fields = ['word', 'morphology']
+        model = GreekWord
+        fields = ['id', 'word', 'morphology', 'word_bank']

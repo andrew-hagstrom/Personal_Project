@@ -5,27 +5,53 @@ import { useParams } from 'react-router-dom';
 import '../App.css';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import WordCard from '../components/WordCard';
+import WordCardBank from '../components/WordCardBankPage';
 import { useOutletContext } from 'react-router-dom';
 
 const WordBankPage = () => {
   const { favorites, setFavorites } = useOutletContext();
+  
+
+  useEffect(() => {
+    const fetchWordBankData = async () => {
+      try {
+        let token = localStorage.getItem("token")
+        axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+        const response = await axios.get('http://127.0.0.1:8000/api/v1/wordbank/');
+       
+        setFavorites(response.data);
+        
+      } catch (error) {
+        console.error('Error fetching word data:', error);
+      } 
+    };
+
+    fetchWordBankData();
+  }, []);
 
   return (
     <>
       <h2>Word Bank</h2>
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "20px", 
+        justifyContent: "center", 
+      }}>
       {favorites.map((favorite) => (
-        <WordCard
+        <WordCardBank 
           key={favorite.id}
-          id={favorite.id}
           word={favorite.word}
           morphology={favorite.morphology}
           favorites={favorites}
           setFavorites={setFavorites}
         />
-      ))}
+      ))}</div>
     </>
   );
 };
 
 export default WordBankPage;
+
+
+

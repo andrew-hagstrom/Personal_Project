@@ -7,6 +7,15 @@ body {
   padding: 0;
 }
 
+.signup{
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+
 .login {
   justify-content: center; 
   align-items: center; 
@@ -14,6 +23,7 @@ body {
   padding: 20px;
   text-align: center;
 }
+
 
 .cardcontainer {
   display: flex;

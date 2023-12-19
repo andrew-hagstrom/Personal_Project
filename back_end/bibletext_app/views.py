@@ -3,7 +3,40 @@ from django.shortcuts import render
 from django.db import models
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from bible_proj.settings import env  
+from bible_proj.settings import env 
+from user_app.views import UserPermissions 
+
+class GreekChapterInfo(APIView):
+    def getchapters(self, api_url, api_key):
+        headers = {
+            'api-key': api_key,
+            'Content-Type': 'application/json',  
+        }
+        try:
+            response = requests.get(api_url, headers=headers)
+            print(f"\n\n\n {response} \n\n\n")
+            response.raise_for_status()  
+            data = response.json()  
+            return data
+        except requests.exceptions.RequestException as e:
+           
+            print(f"Error accessing API: {e}")
+            return None
+        
+    def get(self, request):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/books/LUK/chapters"
+        api_key = env.get('API_KEY')
+
+        chapters = self.getchapters(api_url, api_key)
+        print(chapters)
+        if chapters:
+            print("API Data:")
+            print(chapters)
+        else:
+            print("Failed to retrieve API data.")
+
+        return Response(chapters['data']['id'])
+        
 
 class GreekChapter(APIView):
     def get_chapter_data(self, api_url, api_key):
@@ -36,8 +69,8 @@ class GreekChapter(APIView):
 
         return Response(chapter_data['data'])
 
-class GreekVerse(APIView):
 
+class GreekVerse(APIView):
     def get_verse_data(self, api_url, api_key):
         headers = {
             'api-key': api_key,
@@ -66,6 +99,9 @@ class GreekVerse(APIView):
             print("Failed to retrieve API data.")
 
         return Response(verse_data['data'])
+
+
+
     
 
 

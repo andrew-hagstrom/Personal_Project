@@ -38,10 +38,10 @@ export default function App() {
   return (
      <>
     <div>
-
+  <h1 style={{ width: '100%', backgroundColor: 'green', color: 'gold', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
     <Container>
       <Row style={{ textAlign: "center" }}>
-        <h1 style={{ width: '100%', backgroundColor: 'green', color: 'gold', fontsize: 2}}>Greek New Testament Morphology Application</h1>
+      
       </Row>
       {/* <Navbar/> */}
       {user ? <Navbar/>

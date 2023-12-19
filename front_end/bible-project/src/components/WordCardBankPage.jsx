@@ -2,24 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useNavigate, useParams } from "react-router-dom";
 
-function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorites }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function WordCardBank({id, word, morphology, favorites, setFavorites }) {
+  const [isFavorite, setIsFavorite] = useState(true);
 
-  const AddWord = async () => {
-    try {
-      let data = {morphology:morphology}
-      let token = localStorage.getItem("token")
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-      const response = await axios
-      .post(`http://127.0.0.1:8000/api/v1/word/${word}/`, data
-      );
-      console.log("Word added successfully:", response.data)
-    } catch (error) {
-      console.error('Error adding word:', error);
-    }
-  };
 
   const RemoveWord= async () => {
     try {
@@ -36,12 +22,12 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
   const removeFavorite = () => {
     setFavorites(favorites.filter((favorite) => favorite.id !== id));
     setIsFavorite(false);
-    RemoveWord()};
+    RemoveWord()
+    window.location.reload();
+  };
+    
 
-  const addToFavorites = () => {
-    setFavorites([...favorites, { id, word, morphology }]);
-    setIsFavorite(true);
-    AddWord()};
+
 
   const inFavorites = () => {
     return favorites.filter((favorite) => favorite.id === id);
@@ -62,20 +48,13 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
         <Card.Text>{morphology}</Card.Text>
         <Button
           variant="warning"
-          onClick={() => {
-            isFavorite ? removeFavorite() : addToFavorites();}}
-            disabled={!morphologyLoaded}
-            >
-          {isFavorite ? "Remove from Word Bank" : "Add to Word Bank"}
+          onClick={() => {removeFavorite()}}>
+          {"Remove from Word Bank"}
         </Button>
       </Card.Body>
     </Card>
+    
   );
 }
 
-export default WordCard;
-
-
-
-
-
+export default WordCardBank;

@@ -4,7 +4,7 @@ import Home from "./pages/home_page";
 import WordBankPage from "./pages/word_bank_page";
 import ChapterPage from "./pages/chapter_page";
 import VersePage from "./pages/verse_page";
-import Translation from "./pages/translation_page";
+// import {Translation} from "./pages/chapter_translation_page";
 import {Register} from "./pages/register_page";
 import LogIn from './pages/login_page';
 import WordPage from './pages/word_page';
@@ -42,10 +42,10 @@ const router = createBrowserRouter([
         path: "wordbank/",
         element: <WordBankPage/>,
       },
-      {
-        path: "translation/",
-        element: <Translation/>,
-      },
+      // {
+      //   path: "translation/",
+      //   element: <Translation/>,
+      // },
     ],
   },
 ]);
