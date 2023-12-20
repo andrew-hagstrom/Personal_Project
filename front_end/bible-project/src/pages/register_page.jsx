@@ -5,6 +5,8 @@ import Row from "react-bootstrap/esm/Row";
 import { api } from "../utilities";
 import '../App.css';
 // import {userContext} from '../app';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export const Register = () => {
     const [email, setEmail] = useState("");
@@ -37,24 +39,24 @@ export const Register = () => {
     }
 
     return (
-        <div className = "signup">
-        <Row >
-            <form onSubmit={(e)=>signUp(e)} style={{
-            
-      }}>
-                <h2>Create User Account</h2>
-                <input
+        
+        <div className = "login">
+             <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
+        <Row className="form-container">
+            <Form onSubmit={(e)=>signUp(e)} className='login-form'>
+                <Form.Label>Create User Account</Form.Label>
+                <Form.Control
                 type="text"
                 placeholder="email"
                 onChange={(e) => setEmail(e.target.value)}
                 />
-                <input
+                <Form.Control
                 type="text"
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
                 />
-                <input type="submit" value="Sign up"/>
-            </form>
+                <Form.Control type="submit" value="Sign up"/>
+            </Form>
         </Row></div>
     )
 }

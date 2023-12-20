@@ -56,6 +56,7 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
   }, []);
 
   return (
+    <div style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title>{word}</Card.Title>
@@ -69,7 +70,7 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
           {isFavorite ? "Remove from Word Bank" : "Add to Word Bank"}
         </Button>
       </Card.Body>
-    </Card>
+    </Card></div>
   );
 }
 

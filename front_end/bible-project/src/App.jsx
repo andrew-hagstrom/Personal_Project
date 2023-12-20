@@ -9,8 +9,6 @@ import Home from "./pages/home_page";
 import { userapi } from "./utilities";
 
 
-// export const userContext = createContext();
-
 export default function App() {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
@@ -22,7 +20,6 @@ export default function App() {
       userapi.defaults.headers.common['Authorization']=`Token ${token}`
       let response = await userapi.get('/')
       setUser(response.data.email)
-      // navigate("/")
     }
   }
 
@@ -38,19 +35,15 @@ export default function App() {
   return (
      <>
     <div>
-  <h1 style={{ width: '100%', backgroundColor: 'green', color: 'gold', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
     <Container>
       <Row style={{ textAlign: "center" }}>
-      
       </Row>
-      {/* <Navbar/> */}
       {user ? <Navbar/>
       : <div></div>
     }
     <Outlet context={{user, setUser, favorites, setFavorites}}/>
     </Container>
     </div>
-   
     </>
   );
 }

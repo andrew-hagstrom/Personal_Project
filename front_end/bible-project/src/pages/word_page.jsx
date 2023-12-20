@@ -36,9 +36,9 @@ const WordPage = () => {
  
   return (
     <>
-     <div>
-      <h2>{word}</h2>
-        <WordCard
+     <div >
+      <h2 style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>{word}</h2>
+        <WordCard 
           word={word}
           morphology={wordData}
           morphologyLoaded = {morphologyLoaded}

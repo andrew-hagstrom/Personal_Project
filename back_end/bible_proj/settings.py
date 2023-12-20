@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user_app',
-    'bible_app',
-    'book_app',
     'bibletext_app',
     'greekword_app',
     'wordbank_app',

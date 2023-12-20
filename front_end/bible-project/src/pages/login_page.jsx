@@ -38,9 +38,12 @@ const LoginPage = () => {
   };
 
   return (
+    <>
+    
     <div className = "login">
-    <Row >
-      <Form onSubmit={handleLogin}>
+      <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
+    <Row className="form-container">
+      <Form onSubmit={handleLogin} className='login-form'>
         <h2>Login</h2>
         <Form.Group>
           <Form.Label>Email address</Form.Label>
@@ -60,12 +63,12 @@ const LoginPage = () => {
             placeholder="password"
           />
         </Form.Group>
-        <Button type="submit">Log In</Button>
-        <Button variant="secondary" onClick={handleSignupClick}>
+        <Button type="submit" className='login-button'>Log In</Button>
+        <Button variant="secondary" onClick={handleSignupClick} className='login-button'>
           Sign Up
         </Button>
       </Form>
-    </Row></div>
+    </Row></div></>
   );
 };
 

@@ -19,8 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('api/v1/users/', include('user_app.urls')),
-    path('api/v1/bible/', include('bible_app.urls')),
-    path('api/v1/book/', include('book_app.urls')),
     path('api/v1/chapter/', include('bibletext_app.urls')),
     path('api/v1/word/', include('greekword_app.urls')),
     path('api/v1/wordbank/', include('wordbank_app.urls')),

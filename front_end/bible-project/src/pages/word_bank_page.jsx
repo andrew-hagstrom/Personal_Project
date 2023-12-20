@@ -31,7 +31,7 @@ const WordBankPage = () => {
 
   return (
     <>
-      <h2>Word Bank</h2>
+      <h2 style={{ paddingTop: '60px', textAlign: 'center', marginTop: '50px' }}>My Words</h2>
       <div style={{
         display: "flex",
         flexWrap: "wrap",

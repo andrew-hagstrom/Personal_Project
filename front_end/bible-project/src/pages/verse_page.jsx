@@ -41,8 +41,10 @@ const VersePage = () => {
 
   return (
     <div className="verse-container">
-      <h2>{verseData.reference}</h2>
+      <h2 style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center', marginTop: '150px' }}>{verseData.reference}</h2>
+      <p style={{fontSize: '30px', margin: '20px'}}>
       {renderContentWithClickableWords()}
+      </p>
     </div>
   );
 };

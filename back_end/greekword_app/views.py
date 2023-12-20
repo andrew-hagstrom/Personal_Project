@@ -29,7 +29,7 @@ class GW(UserPermissions):
         greek_pattern = r'[\u0370-\u03FF\u1F00-\u1FFF]+'
 
         if re.match(greek_pattern, word):
-            greekword = word
+            word = word
         else: 
             print("This is not a Greek Word.")
 
@@ -37,7 +37,7 @@ class GW(UserPermissions):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a Greek morphological assistant."},
-                {"role": "user", "content": f"Provide the Greek morphology of the following word: {word}. First, give the English definition of the word and transliteration. Then if it is a noun or adjective, provide case, number (singular or plural), gender. If it is a verb, provide mood, tense, person, number (singular or plural), voice."}
+                {"role": "user", "content": f"Provide the Greek morphology of the following word: {word}. First, give the transliteration, definition, and part of speech. If it is a noun or adjective or participle, provide case, number (singular or plural), gender. If it is a verb, provide mood, tense, person, number (singular or plural), voice."}
             ]
         )
       
