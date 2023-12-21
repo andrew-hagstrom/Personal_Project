@@ -47,6 +47,7 @@ function WordCardBank({id, word, morphology, favorites, setFavorites }) {
         <Card.Title style={{fontSize:'20px',fontWeight:'bold'}}>{word}</Card.Title>
         <Card.Text>{morphology}</Card.Text>
         <Button
+          style={{color:'red'}}
           variant="warning"
           onClick={() => {removeFavorite()}}>
           {"Remove from Word Bank"}

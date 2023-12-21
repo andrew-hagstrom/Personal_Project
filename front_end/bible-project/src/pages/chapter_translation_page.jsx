@@ -3,9 +3,11 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import Row from 'react-bootstrap/esm/Row';
 import axios from 'axios';
 import Button from "react-bootstrap/Button";
+import Loader from '../components/Loader';
 
 const ChapterTranslationPage = () => {
   const [chapterTranslation, setChapterTranslation] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { chapterNumber } = useParams();
   const navigate = useNavigate();
 
@@ -14,7 +16,7 @@ const ChapterTranslationPage = () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/translation/`);
         setChapterTranslation(response.data);
-       
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching chapter:', error);
         alert('Something went wrong');
@@ -31,6 +33,8 @@ const ChapterTranslationPage = () => {
  
 
   return (
+    <div>
+    {isLoading ? (<Loader />) : (
     <Row className='chapterPage'>
       <h2 style={{ marginTop: "20vh", marginBottom:'0vh', marginLeft:'45vw'}}>{chapterTranslation.reference}</h2>
       <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom:'5vh', background:'beige', marginLeft:'40vw'}} onClick={handleNavToGreek}>See Greek Text</Button>
@@ -39,6 +43,8 @@ const ChapterTranslationPage = () => {
      
       </p>
     </Row>
+    )}
+    </div>
   );
 };
 

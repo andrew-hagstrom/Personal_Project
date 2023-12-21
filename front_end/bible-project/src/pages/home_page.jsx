@@ -7,7 +7,7 @@ const Home = () => {
       <div style={{ margin: '100px', color: 'darkgreen', fontSize: '20px', border:'5px solid'}}>
         <div style={{margin:'20px'}}>
         <h3>
-          Welcome to HellaMorph, a Greek Morphology Application for the study of the New Testament Gospel of Luke!
+          Welcome to HellaMorph, a Greek Morphology Application designed for the study of the New Testament Gospel of Luke!
         </h3>
         <p>
         This app is designed to facilitate the study of word morphology in the Greek New Testament, particularly in the Gospel of Luke. You will be able to study the Greek words and add them to a word bank for your study needs.

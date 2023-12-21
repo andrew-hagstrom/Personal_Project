@@ -4,9 +4,11 @@ import Row from 'react-bootstrap/esm/Row';
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
+import Loader from '../components/Loader';
 
 const ChapterPage = () => {
   const [chapter, setChapter] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { chapterNumber } = useParams();
   const navigate = useNavigate(); 
   
@@ -15,6 +17,7 @@ const ChapterPage = () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/`);
         setChapter(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching chapter:', error);
         alert('Something went wrong');
@@ -44,6 +47,8 @@ const ChapterPage = () => {
     );
   };
 
+
+
   const handleTranslation = () => {
     navigate(`/chapter/${chapterNumber}/translation/`);
     window.location.reload(); 
@@ -51,13 +56,16 @@ const ChapterPage = () => {
 
   return (
     <div>
+      {isLoading ? (<Loader />) : (
     <Row className='chapterPage'>
       <h2  style={{ marginTop: "20vh", marginBottom:'0vh', marginLeft:'40vw'}}>{chapter.reference}</h2>
       <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom: '5vh', background:'beige', marginLeft:'40vw'}} onClick={handleTranslation}>See English Text</Button>
       <p style={{fontSize: "20px", margin: '5px', color: 'black', marginLeft: '2vw'}}>
       {renderContentWithClickableWords()}
       </p>
-    </Row></div>
+    </Row>
+  )}
+    </div>
   );
 };
 
