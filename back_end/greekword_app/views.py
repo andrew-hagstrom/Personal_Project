@@ -29,19 +29,17 @@ class GW(UserPermissions):
         greek_pattern = r'[\u0370-\u03FF\u1F00-\u1FFF]+'
 
         if re.match(greek_pattern, word):
-            word = word
-        else: 
-            print("This is not a Greek Word.")
 
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a Greek morphological assistant."},
-                {"role": "user", "content": f"Provide the Greek morphology of the following word: {word}. First, give the transliteration, definition, and part of speech. If it is a noun or adjective or participle, provide case, number (singular or plural), gender. If it is a verb, provide mood, tense, person, number (singular or plural), voice."}
-            ]
-        )
-      
-        return Response(response)
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a Greek morphological assistant."},
+                    {"role": "user", "content": f"Provide the Greek morphology of the following word: {word}. First, give the transliteration, definition, and part of speech. If it is a noun or adjective or participle, provide case, number (singular or plural), gender. If it is a verb, provide mood, tense, person, number (singular or plural), voice."}
+                ]
+            )
+            return Response(response, status=HTTP_200_OK)
+        else: 
+            return Response({"message": "This is not a Greek Word."}, status=HTTP_204_NO_CONTENT)
     
 
     def post(self, request, word):

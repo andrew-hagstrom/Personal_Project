@@ -41,13 +41,13 @@ const LoginPage = () => {
     <>
     
     <div className = "login">
-      <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
+      <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>HellaMorph</h1>
     <Row className="form-container">
       <Form onSubmit={handleLogin} className='login-form'>
         <h2>Login</h2>
         <Form.Group>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
+          <Form.Label>Email:</Form.Label>
+          <Form.Control 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
@@ -55,20 +55,26 @@ const LoginPage = () => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+          <Form.Label>Password:</Form.Label>
+          <Form.Control 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="password"
+            style={{marginRight:'30px'}}
           />
         </Form.Group>
         <Button type="submit" className='login-button'>Log In</Button>
         <Button variant="secondary" onClick={handleSignupClick} className='login-button'>
-          Sign Up
+          Go to Sign Up
         </Button>
       </Form>
-    </Row></div></>
+    </Row>
+    <p style={{color:'red', marginTop:'10vh'}}>
+    ~"For nothing is hidden that will not be made manifest, nor is anything hidden away that will not be made known and come to light." -Luke 8:17
+    </p>
+    
+    </div></>
   );
 };
 

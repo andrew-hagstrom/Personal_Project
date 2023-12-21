@@ -52,8 +52,8 @@ const ChapterPage = () => {
   return (
     <div>
     <Row className='chapterPage'>
-      <h2  style={{ marginTop: "30vh", marginBottom:'0vh', marginLeft:'40vw'}}>{chapter.reference}</h2>
-      <Button style={{width:'200px', height:'40px', marginTop:'5vh', background:'beige', marginLeft:'40vw'}} onClick={handleTranslation}>See Translation</Button>
+      <h2  style={{ marginTop: "20vh", marginBottom:'0vh', marginLeft:'40vw'}}>{chapter.reference}</h2>
+      <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom: '5vh', background:'beige', marginLeft:'40vw'}} onClick={handleTranslation}>See English Text</Button>
       <p style={{fontSize: "20px", margin: '5px', color: 'black', marginLeft: '2vw'}}>
       {renderContentWithClickableWords()}
       </p>

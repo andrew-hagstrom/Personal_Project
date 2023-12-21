@@ -44,7 +44,7 @@ function WordCardBank({id, word, morphology, favorites, setFavorites }) {
   return (
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
-        <Card.Title>{word}</Card.Title>
+        <Card.Title style={{fontSize:'20px',fontWeight:'bold'}}>{word}</Card.Title>
         <Card.Text>{morphology}</Card.Text>
         <Button
           variant="warning"

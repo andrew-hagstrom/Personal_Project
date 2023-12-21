@@ -43,6 +43,7 @@ export const Navbar = ({user, setUser}) => {
                 }
                 setVerses(allVerses) 
             } catch (error) {
+                console.log(error)
           
             }  
         }
@@ -90,8 +91,8 @@ export const Navbar = ({user, setUser}) => {
 
     
     return (
-        <Row className='navbar align-items-center'>
-            <h3 style={{color:'green'}}>Gospel of Luke Greek Morphology App</h3>
+        <Row className='navbar'>
+            <h3 style={{color:'green'}}>HellaMorph</h3>
             <Link to="/">Home</Link>
             <Link to="wordbank/">Word Bank</Link>
             <Form className='dropdown'>

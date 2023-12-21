@@ -31,12 +31,17 @@ const WordBankPage = () => {
 
   return (
     <>
-      <h2 style={{ paddingTop: '60px', textAlign: 'center', marginTop: '50px' }}>My Words</h2>
+    {favorites.length === 0 ? (
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <p style={{ alignContent: 'center', fontSize:'40px'}}>Your word bank is currently empty. Please select words in the Greek text to add to your word bank.</p>
+        </div>
+      ) : (
       <div style={{
         display: "flex",
         flexWrap: "wrap",
         gap: "20px", 
         justifyContent: "center", 
+        marginTop: '100px'
       }}>
       {favorites.map((favorite) => (
         <WordCardBank 
@@ -47,6 +52,7 @@ const WordBankPage = () => {
           setFavorites={setFavorites}
         />
       ))}</div>
+      )}
     </>
   );
 };

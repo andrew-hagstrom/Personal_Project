@@ -59,7 +59,7 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
     <div style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
-        <Card.Title>{word}</Card.Title>
+        <Card.Title style={{fontSize:'20px',fontWeight:'bold'}}>{word}</Card.Title>
         <Card.Text>{morphology}</Card.Text>
         <Button
           variant="warning"

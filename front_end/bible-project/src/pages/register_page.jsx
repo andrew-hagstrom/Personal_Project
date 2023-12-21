@@ -38,25 +38,43 @@ export const Register = () => {
        
     }
 
+    const handleLoginClick = () => {
+        navigate("/login/"); 
+    };
+
     return (
         
         <div className = "login">
-             <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '100'}}>Gospel of Luke Greek Morphology Application</h1>
+             <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>HellaMorph</h1>
         <Row className="form-container">
             <Form onSubmit={(e)=>signUp(e)} className='login-form'>
-                <Form.Label>Create User Account</Form.Label>
+                <h2>Sign Up</h2>
+                <Form.Group>
+                <Form.Label>Email:</Form.Label>
                 <Form.Control
-                type="text"
-                placeholder="email"
-                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                 onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="name@example.com"
                 />
-                <Form.Control
-                type="text"
-                placeholder="password"
-                onChange={(e) => setPassword(e.target.value)}
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control
+                        value={password}
+                        type="password"
+                        placeholder="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        style={{marginRight:'30px'}}
                 />
-                <Form.Control type="submit" value="Sign up"/>
+                </Form.Group>
+                <Button type="submit" value="Sign up" className='login-button'>Sign Up</Button>
+                <Button variant="secondary" onClick={handleLoginClick} className='login-button'>Go to Login</Button>
             </Form>
-        </Row></div>
+        </Row>
+        <p style={{color:'red', marginTop:'10vh'}}>
+    ~"For nothing is hidden that will not be made manifest, nor is anything hidden away that will not be made known and come to light." -Luke 8:17
+    </p>
+        </div>
     )
 }
