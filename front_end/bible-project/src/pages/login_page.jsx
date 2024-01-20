@@ -10,7 +10,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {setUser} = useLocation();
+  // const {setUser} = useLocation();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const LoginPage = () => {
     <>
     
     <div className = "login">
-      <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>HellaMorph</h1>
+      <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>MorphMaster</h1>
     <Row className="form-container">
       <Form onSubmit={handleLogin} className='login-form'>
         <h2>Login</h2>

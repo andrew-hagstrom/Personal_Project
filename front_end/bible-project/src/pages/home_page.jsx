@@ -3,19 +3,19 @@ import { Link, useParams } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <h2 style={{ position: 'relative', top: '0', width: '100%', textAlign: 'center', marginTop: '100px', color: 'darkgreen'}}>HOME</h2>
+      <h2 style={{ position: 'relative', width: '100%', textAlign: 'center', marginTop: '20vh', color: 'darkgreen'}}>HOME</h2>
       <div style={{ margin: '100px', color: 'darkgreen', fontSize: '20px', border:'5px solid'}}>
         <div style={{margin:'20px'}}>
         <h3>
-          Welcome to HellaMorph, a Greek Morphology Application designed for the study of the New Testament Gospel of Luke!
+          Welcome to MorphMaster, a Greek Morphology Application designed for the study of the New Testament Gospel of Luke!
         </h3>
         <p>
-        This app is designed to facilitate the study of word morphology in the Greek New Testament, particularly in the Gospel of Luke. You will be able to study the Greek words and add them to a word bank for your study needs.
+        This app is designed to facilitate the study of word morphology in the Greek New Testament. You will be able to study the Greek words and add them to a word bank for your study needs.
         </p>
         <p>
         Use the dropdown boxes on the navbar to search through the Gospel of Luke by chapter or verse or click on one of the chapter links below. Simply click on a word in the Greek text to generate a word card that you can add to your own personal wordbank. You may also navigate to the English translation of the text from the links below or from the Greek chapter pages.
         </p>
-        <h4>Greek Chapters</h4>
+        {/* <h4>Greek Chapters</h4>
         <p>
         <Link to='http://localhost:5173/chapter/1/'>Chapter 1</Link>{' / '}
         <Link to='http://localhost:5173/chapter/2/'>Chapter 2</Link>{' / '}
@@ -66,7 +66,7 @@ const Home = () => {
         <Link to='http://localhost:5173/chapter/21/translation/'>Chapter 21</Link>{' / '}
         <Link to='http://localhost:5173/chapter/22/translation/'>Chapter 22</Link>{' / '}
         <Link to='http://localhost:5173/chapter/23/translation/'>Chapter 23</Link>{' / '}
-        <Link to='http://localhost:5173/chapter/24/translation/'>Chapter 24</Link>
+        <Link to='http://localhost:5173/chapter/24/translation/'>Chapter 24</Link> */}
         </div>
       </div>
     </div>

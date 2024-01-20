@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import '../App.css';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -14,7 +14,7 @@ const WordPage = () => {
   const { word } = useParams();
   const {favorites, setFavorites} = useOutletContext()
   const [morphologyLoaded, setMorphologyLoaded] = useState(false)
-  console.log(wordData)
+  // console.log(wordData)
 
   useEffect(() => {
     const fetchWordData = async () => {

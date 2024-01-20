@@ -45,7 +45,7 @@ export const Register = () => {
     return (
         
         <div className = "login">
-             <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>HellaMorph</h1>
+             <h1 style={{ width: '100vw', color: 'darkgreen', fontsize: 2, marginTop: '10vh', marginBottom:'5vh'}}>MorphMaster</h1>
         <Row className="form-container">
             <Form onSubmit={(e)=>signUp(e)} className='login-form'>
                 <h2>Sign Up</h2>

@@ -14,44 +14,43 @@ export const Navbar = ({user, setUser}) => {
      const [verses, setVerses] = useState([]);
      const [selectedVerses, setSelectedVerses] = useState('');
      const { chapterNumber } = useParams();
+     const email = localStorage.getItem('email');
 
 
     const logout = async() => {
-        navigate('login/');
-        window.location.reload();
         let response = await userapi.post('logout/')
         if (response.status == 204) {
             localStorage.removeItem('token')
             localStorage.removeItem('email')
+            navigate('/login/');
+            window.location.reload();
             setUser(null)
             delete userapi.defaults.headers.common['Authorization']
-           
         } else {
             console.log("There was an error. Please try again.")
         }
+         
     }
 
-    useEffect(() => {
-        const GetVerses = async() => {
-            try {
-                let token = localStorage.getItem("token")
-                axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-                const allVerses = [];
-                for (let chapterNumber = 1; chapterNumber <= 24; chapterNumber++) {
-                    const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/verses/`)
-                    allVerses.push(...response.data);
-                }
-                setVerses(allVerses) 
-            } catch (error) {
-                console.log(error)
+    // useEffect(() => {
+    //     const GetVerses = async() => {
+    //         try {
+    //             let token = localStorage.getItem("token")
+    //             axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+    //             const allVerses = [];
+    //             for (let chapterNumber = 1; chapterNumber <= 24; chapterNumber++) {
+    //                 const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/verses/`)
+    //                 allVerses.push(...response.data);
+    //             }
+    //             setVerses(allVerses) 
+    //         } catch (error) {
+    //             console.log(error)
           
-            }  
-        }
-
-             GetVerses(); 
+    //         }  
+    //     }
+    //          GetVerses(); 
       
-        }, []);
-    
+    //     }, []);
        
         // const handleVerseChange = (e) => {
         //     setSelectedVerses(e.target.value)
@@ -64,23 +63,25 @@ export const Navbar = ({user, setUser}) => {
             navigate(`/chapter/${parseInt(chapter)}/verse/${parseInt(verse)}`);
         }
 
+        //Difficulty was getting from LUK.3.1 to /chapter/3/verse/1/
 
-    useEffect(() => {
-        const GetChapters = async() => {
-            try {
-                let token = localStorage.getItem("token")
-                axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-                const response = await axios.get('http://127.0.0.1:8000/api/v1/chapter/')
-                setChapters(response.data)
-                console.log(data);   
-            } catch (error) {
+
+    // useEffect(() => {
+    //     const GetChapters = async() => {
+    //         try {
+    //             let token = localStorage.getItem("token")
+    //             axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+    //             const response = await axios.get('http://127.0.0.1:8000/api/v1/chapter/')
+    //             setChapters(response.data)
+    //             console.log(data);   
+    //         } catch (error) {
           
-            }
+    //         }
        
-        };
+    //     };
 
-        GetChapters(); 
-        }, []);
+    //     GetChapters(); 
+    //     }, []);
 
     
     const handleChapterChange = (e) => {
@@ -88,19 +89,21 @@ export const Navbar = ({user, setUser}) => {
         navigate(`/chapter/${e.target.value}/`);
     }
 
+     //No difficulty here because e.target.value is chapter.number, which is 1, 2, 3, etc. So url is simply /chapter/e.target.value
+
 
     
     return (
         <Row className='navbar'>
-            <h3 style={{color:'green'}}>HellaMorph</h3>
+            <h3 style={{color:'green'}}>MorphMaster</h3>
             <Link to="/">Home</Link>
             <Link to="wordbank/">Word Bank</Link>
             <Form className='dropdown'>
-                {/* <Form.Group controlId='bookSelect' className='mr-2'>
+                <Form.Group controlId='bookSelect' className='mr-2'>
                     <Form.Control as='select' onChange={''}>
                         <option value=''>Select Book</option>
                     </Form.Control>
-                </Form.Group> */}
+                </Form.Group>
                     <Form.Group controlId='chapterSelect' className='mr-2'>
                         <Form.Control as='select' value={selectedChapter} onChange={handleChapterChange}>
                             <option value=''>Look Up by Chapter</option>
@@ -122,7 +125,7 @@ export const Navbar = ({user, setUser}) => {
                     </Form.Control>
                 </Form.Group>
              </Form>
-             
+            <p>Welcome, {email}!</p> 
         <Button onClick={logout}>Logout</Button>
         </Row>
     )

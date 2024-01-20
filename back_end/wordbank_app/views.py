@@ -9,7 +9,7 @@ from bible_proj.settings import env
 from greekword_app.models import GreekWord
 from user_app.views import UserPermissions
 from .models import WordBank
-from .serializers import WordBankSerializer
+# from .serializers import WordBankSerializer
 from greekword_app.serializers import GreekWordSerializer
 from rest_framework.status import (
     HTTP_200_OK,

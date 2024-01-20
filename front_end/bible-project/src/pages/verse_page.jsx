@@ -19,6 +19,8 @@ const VersePage = () => {
     fetchData();
   }, [chapterNumber, verseNumber]);
 
+  
+
   const renderContentWithClickableWords = () => {
     if (!verseData.content) return null;
 
@@ -41,7 +43,7 @@ const VersePage = () => {
 
   return (
     <div className="verse-container">
-      <h2 style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center', marginTop: '150px' }}>{verseData.reference}</h2>
+      <h2 style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center', marginTop: '30vh'}}>{verseData.reference}</h2>
       <p style={{fontSize: '30px', margin: '20px'}}>
       {renderContentWithClickableWords()}
       </p>

@@ -56,7 +56,7 @@ class GreekChapter(APIView):
             return None
 
     def get(self, request, chapterNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/LUK.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false"
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/LUK.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false"
         api_key = env.get('API_KEY')
        
         chapter_data = self.get_chapter_data(api_url, api_key)
@@ -120,7 +120,7 @@ class GreekVerse(APIView):
             return None
 
     def get(self, request, chapterNumber, verseNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/verses/LUK.{chapterNumber}.{verseNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false"
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/verses/LUK.{chapterNumber}.{verseNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false&use-org-id=false"
         api_key = env.get('API_KEY')
         verse_data = self.get_verse_data(api_url, api_key)
         print(verse_data)
