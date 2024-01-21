@@ -53,7 +53,12 @@ export const Navbar = ({user, setUser}) => {
             <Link to="wordbank/">Word Bank</Link>
             <Form className='dropdown'>
                 <Form.Group controlId='bookSelect' className='mr-2'>
-                <Form.Control as='select' onChange={(e) => setSelectedBook(e.target.value)}>
+                <Form.Control as='select' onChange={(e) => {setSelectedBook(e.target.value);
+                if (selectedChapter) {
+                    // If a chapter is already selected, navigate to the new book and chapter
+                    navigate(`${bookId[e.target.value]}/chapter/${selectedChapter}/`);
+                  }
+                }}>
                         <option value=''>Select Book</option>
                         {newTestamentBooks.map((book, index) => (
                         <option key={index} value={book}>
