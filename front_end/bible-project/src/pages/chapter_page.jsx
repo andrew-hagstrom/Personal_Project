@@ -37,7 +37,7 @@ const ChapterPage = () => {
         {words.map((word, index) => (
           <Link
             key={index}
-            to={`/word/${word}/`} 
+            to={`/word/${word}/?book=${bookId}&chapter=${chapterNumber}&verse=${index + 1}`} 
             className="clickable-word"
           >
             {`${word} `}

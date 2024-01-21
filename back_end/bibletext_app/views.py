@@ -161,6 +161,37 @@ class ChapterTranslation(APIView):
             print("Failed to retrieve API data.")
 
         return Response(chapter_translation['data'])
+    
+
+class VerseTranslation(APIView):
+    def get_verse_translation(self, api_url, api_key):
+        headers = {
+            'api-key': api_key,
+            'Content-Type': 'application/json',  
+        }
+        try:
+            response = requests.get(api_url, headers=headers)
+            print(f"\n\n\n {response} \n\n\n")
+            response.raise_for_status()  
+            data = response.json()  
+            return data
+        except requests.exceptions.RequestException as e:
+           
+            print(f"Error accessing API: {e}")
+            return None
+
+    def get(self, request, bookId, chapterNumber, verseNumber):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/32339cf2f720ff8e-01/verses/{bookId}.{chapterNumber}.{verseNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false"
+        api_key = env.get('API_KEY')
+        verse_translation = self.get_verse_translation(api_url, api_key)
+        print(verse_translation)
+        if verse_translation:
+            print("API Data:")
+            print(verse_translation)
+        else:
+            print("Failed to retrieve API data.")
+
+        return Response(verse_translation['data'])
 
     
 

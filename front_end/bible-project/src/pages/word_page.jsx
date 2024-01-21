@@ -12,6 +12,11 @@ const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
   // const [word, setWord] = useState([])
   const { word } = useParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const bookId = queryParams.get('book');
+  const chapterNumber = queryParams.get('chapter');
+  const verseNumber = queryParams.get('verse');
   const {favorites, setFavorites} = useOutletContext()
   const [morphologyLoaded, setMorphologyLoaded] = useState(false)
   // console.log(wordData)
@@ -40,6 +45,9 @@ const WordPage = () => {
       <h2 style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>{word}</h2>
         <WordCard 
           word={word}
+          bookId={bookId}
+          chapterNumber={chapterNumber}
+          verseNumber={verseNumber}
           morphology={wordData}
           morphologyLoaded = {morphologyLoaded}
           favorites={favorites}

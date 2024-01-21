@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate, useParams } from "react-router-dom";
 
-function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorites }) {
+function WordCard({id, word, morphology, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const AddWord = async () => {
@@ -60,7 +60,7 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'green'}}>{word}</Card.Title>
-        <Card.Text>Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: {bookId}{chapterNumber}:{verseNumber} Morphology: {morphology}</Card.Text>
         <Button
           variant="warning"
           onClick={() => {

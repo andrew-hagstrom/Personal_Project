@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Button from "react-bootstrap/Button";
 
 const VersePage = () => {
   const [verseData, setVerseData] = useState({});
   const { bookId, chapterNumber, verseNumber } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +28,8 @@ const VersePage = () => {
 
     const words = verseData.content.split(' ');
 
+  
+
     return (
       <div>
         {words.map((word, index) => (
@@ -41,9 +45,15 @@ const VersePage = () => {
     );
   };
 
+  const handleVerseTranslation = () => {
+    navigate('translation/');
+    window.location.reload(); 
+    };
+
   return (
     <div className="verse-container">
       <h2 style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center', marginTop: '30vh'}}>{verseData.reference}</h2>
+      <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom: '5vh', background:'beige', marginLeft:'40vw'}} onClick={handleVerseTranslation}>See English Text</Button>
       <p style={{fontSize: '30px', margin: '20px'}}>
       {renderContentWithClickableWords()}
       </p>
