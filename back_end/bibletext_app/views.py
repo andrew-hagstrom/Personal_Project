@@ -23,8 +23,8 @@ class GreekChapterInfo(APIView):
             print(f"Error accessing API: {e}")
             return None
         
-    def get(self, request):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/books/LUK/chapters"
+    def get(self, request, bookId):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/books/{bookId}/chapters"
         api_key = env.get('API_KEY')
 
         chapters_data = self.get_chapters_data(api_url, api_key)
@@ -55,8 +55,8 @@ class GreekChapter(APIView):
             print(f"Error accessing API: {e}")
             return None
 
-    def get(self, request, chapterNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/LUK.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false"
+    def get(self, request, bookId, chapterNumber):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/{bookId}.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false"
         api_key = env.get('API_KEY')
        
         chapter_data = self.get_chapter_data(api_url, api_key)
@@ -87,8 +87,8 @@ class GreekVerseInfo(APIView):
             print(f"Error accessing API: {e}")
             return None
         
-    def get(self, request, chapterNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/LUK.{chapterNumber}/verses"
+    def get(self, request, bookId, chapterNumber):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/chapters/{bookId}.{chapterNumber}/verses"
         api_key = env.get('API_KEY')
 
         verses_data = self.get_verses_data(api_url, api_key)
@@ -119,8 +119,8 @@ class GreekVerse(APIView):
             print(f"Error accessing API: {e}")
             return None
 
-    def get(self, request, chapterNumber, verseNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/verses/LUK.{chapterNumber}.{verseNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false&use-org-id=false"
+    def get(self, request, bookId, chapterNumber, verseNumber):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/7644de2e4c5188e5-01/verses/{bookId}.{chapterNumber}.{verseNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false&use-org-id=false"
         api_key = env.get('API_KEY')
         verse_data = self.get_verse_data(api_url, api_key)
         print(verse_data)
@@ -149,8 +149,8 @@ class ChapterTranslation(APIView):
             print(f"Error accessing API: {e}")
             return None
 
-    def get(self, request, chapterNumber):
-        api_url = f"https://api.scripture.api.bible/v1/bibles/32339cf2f720ff8e-01/chapters/LUK.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false"
+    def get(self, request, bookId, chapterNumber):
+        api_url = f"https://api.scripture.api.bible/v1/bibles/32339cf2f720ff8e-01/chapters/{bookId}.{chapterNumber}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false"
         api_key = env.get('API_KEY')
         chapter_translation = self.get_chapter_translation(api_url, api_key)
         print(chapter_translation)

@@ -9,13 +9,13 @@ import Loader from '../components/Loader';
 const ChapterPage = () => {
   const [chapter, setChapter] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { chapterNumber } = useParams();
+  const { bookId, chapterNumber } = useParams();
   const navigate = useNavigate(); 
   
   useEffect(() => {
     const getChapter = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/`);
         setChapter(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -25,7 +25,7 @@ const ChapterPage = () => {
     };
 
     getChapter();
-  }, [chapterNumber]);
+  }, [bookId, chapterNumber]);
 
   const renderContentWithClickableWords = () => {
     if (!chapter.content) return null;
@@ -50,7 +50,7 @@ const ChapterPage = () => {
 
 
   const handleTranslation = () => {
-    navigate(`/chapter/${chapterNumber}/translation/`);
+    navigate('translation/');
     window.location.reload(); 
   };
 

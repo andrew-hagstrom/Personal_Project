@@ -4,12 +4,12 @@ import axios from 'axios';
 
 const VersePage = () => {
   const [verseData, setVerseData] = useState({});
-  const { chapterNumber, verseNumber } = useParams();
+  const { bookId, chapterNumber, verseNumber } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/verse/${verseNumber}/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`);
         setVerseData(response.data);
       } catch (error) {
         console.error('Error fetching verse data:', error);
