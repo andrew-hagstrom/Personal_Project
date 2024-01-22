@@ -24,7 +24,11 @@ const VersePage = () => {
     fetchData();
   }, [chapterNumber, verseNumber]);
 
-  
+  const handleWordClick = (word) => {
+    const cleanedWord = word.replace(/[.,;:]/g, '');
+    navigate(`/word/${cleanedWord}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`);
+    window.location.reload();
+  };
 
   const renderContentWithClickableWords = () => {
     if (!verseData.content) return null;
@@ -38,7 +42,8 @@ const VersePage = () => {
         {words.map((word, index) => (
           <Link
             key={index}
-            to={`/word/${word}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`} 
+            onClick={() => handleWordClick(word)}
+            // to={`/word/${word}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`} 
             className="clickable-word"
           >
             {`${word} `}

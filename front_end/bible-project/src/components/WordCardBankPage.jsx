@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function WordCardBank({id, word, morphology, favorites, setFavorites }) {
+function WordCardBank({id, word, bookId, chapterNumber, verseNumber, morphology, favorites, setFavorites }) {
   const [isFavorite, setIsFavorite] = useState(true);
 
 
@@ -45,7 +45,7 @@ function WordCardBank({id, word, morphology, favorites, setFavorites }) {
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'forestgreen'}}>{word}</Card.Title>
-        <Card.Text>Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: {bookId} {chapterNumber}:{verseNumber} <br/> Morphology: {morphology}</Card.Text>
         <Button
           style={{color:'red'}}
           variant="warning"

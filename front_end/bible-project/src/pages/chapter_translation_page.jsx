@@ -27,7 +27,7 @@ const ChapterTranslationPage = () => {
   }, [chapterNumber]);
 
   const handleNavToGreek = () => {
-    navigate(`/${bookId}/chapter/${chapterNumber}/`); 
+    navigate(`/${bookId}/chapter/${chapterNumber}/`);
 
   }
  

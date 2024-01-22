@@ -1,10 +1,11 @@
 
 
 body {
-  background-image: url('https://img.freepik.com/premium-photo/old-paper-texture-vintage-paper-background_262663-426.jpg?w=2000');
+  /* background-image: url('https://img.freepik.com/premium-photo/old-paper-texture-vintage-paper-background_262663-426.jpg?w=2000'); */
+  background-color: #f0d39f;
+  opacity: 1.0;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: papayawhip;
   margin: 0;
   padding: 0; 
 }

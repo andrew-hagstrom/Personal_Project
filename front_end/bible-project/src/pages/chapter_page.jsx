@@ -24,6 +24,7 @@ const ChapterPage = () => {
   
     if (verseNumber !== null) {
       navigate(`/word/${cleanedClickedWord}/?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`);
+      window.location.reload();
     } else {
       console.error(`Verse number not found for ${cleanedClickedWord}`);
       // Log the words in the chapter to see if there's an issue with the regex
@@ -59,23 +60,7 @@ const ChapterPage = () => {
     return verseNumber;
   };
   
-  
 
-  // Helper function to get all indexes of an element in an array
-// Helper function to get all indexes of an element in an array
-const getAllIndexes = (arr, val) => {
-  let indexes = [],
-    i;
-  for (i = 0; i < arr.length; i++) {
-    if (arr[i].toLowerCase() === val.toLowerCase()) {
-      indexes.push(i);
-    }
-  }
-  return indexes;
-};
-
-
-  
   useEffect(() => {
     const getChapter = async () => {
       try {
@@ -110,10 +95,11 @@ const getAllIndexes = (arr, val) => {
             key={index}
             to={`/word/${word}/?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumbers[index]}`}
             className="clickable-word"
-            onClick={(e) => handleWordClick(e, word, index)}
+            onClick={(e) => handleWordClick(e, word, index)} 
           >
             {`${word} `}
           </Link>
+         
         );
       })}
     </div>
@@ -159,7 +145,6 @@ const getAllIndexes = (arr, val) => {
 
   const handleTranslation = () => {
     navigate('translation/');
-    window.location.reload(); 
   };
 
   return (

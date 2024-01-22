@@ -37,7 +37,7 @@ export const Navbar = ({user, setUser}) => {
             const verseValue = e.target.value;
             const [chapter, verse] = verseValue.split('.').slice(1); 
             setSelectedVerses(e.target.value);
-            navigate(`${bookId[selectedBook]}/chapter/${parseInt(chapter)}/verse/${parseInt(verse)}/`);
+            navigate(`${bookId[selectedBook]}/chapter/${chapter}/verse/${verse}/`);
         }
 
     
