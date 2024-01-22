@@ -4,4 +4,4 @@ from .models import GreekWord
 class GreekWordSerializer(ModelSerializer):
     class Meta:
         model = GreekWord
-        fields = ['id', 'word', 'morphology', 'word_bank']
+        fields = ['id', 'word', 'bookId', 'chapterNumber', 'verseNumber', 'morphology', 'word_bank']
