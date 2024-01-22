@@ -60,6 +60,8 @@ export const newTestamentBooks = [
     "Revelation": "REV",
   };
 
+export const reverseBookId = Object.fromEntries(Object.entries(bookId).map(([key, value]) => [value, key]));
+
 
 export const newTestamentChaptersVerses = {
   'Matthew': {

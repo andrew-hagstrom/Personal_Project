@@ -60,7 +60,7 @@ function WordCard({id, word, morphology, bookId, chapterNumber, verseNumber, mor
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'green'}}>{word}</Card.Title>
-        <Card.Text>Reference: {bookId}{chapterNumber}:{verseNumber} Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: {bookId} {chapterNumber}:{verseNumber} <br/> Morphology: {morphology}</Card.Text>
         <Button
           variant="warning"
           onClick={() => {

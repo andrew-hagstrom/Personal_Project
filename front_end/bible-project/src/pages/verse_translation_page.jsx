@@ -35,13 +35,17 @@ const VerseTranslationPage = () => {
   return (
     <div>
     {isLoading ? (<Loader />) : (
-    <Row className='chapterPage'>
-      <h2 style={{ marginTop: "20vh", marginBottom:'0vh', marginLeft:'45vw'}}>{verseTranslation.reference}</h2>
-      <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom:'5vh', background:'beige', marginLeft:'40vw'}} onClick={handleNavToGreek}>See Greek Text</Button>
-      <p style={{fontSize: "20px", margin: '10px', color: 'black'}}>
+    <div>
+    <p style={{textAlign:'center'}}>
+    <h2 style={{ position: 'absolute', top: '0', width: '100%', marginTop: '30vh'}}>{verseTranslation.reference}</h2>
+    </p>
+    <p style={{textAlign:'center'}}>
+    <Button style={{width:'200px', height:'40px', marginTop:'10vh', marginBottom: '5vh', background:'beige'}}  onClick={handleNavToGreek}>See Greek Text</Button>
+    </p>
+    <p style={{fontSize: "30px", margin: '20px', color: 'black'}}>
       {verseTranslation.content}
      </p>
-    </Row>
+    </div>
     )}
     </div>
   );

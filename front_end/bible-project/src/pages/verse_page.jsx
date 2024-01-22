@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from "react-bootstrap/Button";
+import Loader from '../components/Loader';
 
 const VersePage = () => {
   const [verseData, setVerseData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { bookId, chapterNumber, verseNumber } = useParams();
   const navigate = useNavigate();
 
@@ -13,6 +15,7 @@ const VersePage = () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`);
         setVerseData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching verse data:', error);
       }
@@ -35,7 +38,7 @@ const VersePage = () => {
         {words.map((word, index) => (
           <Link
             key={index}
-            to={`/word/${word}`} 
+            to={`/word/${word}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`} 
             className="clickable-word"
           >
             {`${word} `}
@@ -52,11 +55,19 @@ const VersePage = () => {
 
   return (
     <div className="verse-container">
-      <h2 style={{ position: 'absolute', top: '0', width: '100%', textAlign: 'center', marginTop: '30vh'}}>{verseData.reference}</h2>
-      <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom: '5vh', background:'beige', marginLeft:'40vw'}} onClick={handleVerseTranslation}>See English Text</Button>
+      {isLoading ? (<Loader />) : (
+      <div>
+      <p style={{textAlign:'center'}}>
+      <h2 style={{ position: 'absolute', top: '0', width: '100%', marginTop: '30vh'}}>{verseData.reference}</h2>
+      </p>
+      <p style={{textAlign:'center'}}>
+      <Button style={{width:'200px', height:'40px', marginTop:'5vh', marginBottom: '5vh', background:'beige'}} onClick={handleVerseTranslation}>See English Text</Button>
+      </p>
       <p style={{fontSize: '30px', margin: '20px'}}>
       {renderContentWithClickableWords()}
       </p>
+     </div>
+      )}
     </div>
   );
 };
