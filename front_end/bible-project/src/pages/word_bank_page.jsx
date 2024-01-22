@@ -49,6 +49,7 @@ const WordBankPage = () => {
           key={favorite.id}
           word={favorite.word}
           bookId={favorite.bookId}
+          revBookId={reverseBookId[favorite.bookId]}
           chapterNumber={favorite.chapterNumber}
           verseNumber={favorite.verseNumber}
           morphology={favorite.morphology}

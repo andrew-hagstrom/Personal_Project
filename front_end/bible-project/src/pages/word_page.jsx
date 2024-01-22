@@ -53,7 +53,8 @@ const WordPage = () => {
       <Button style={{ display:'flex', justifyContent:'center', marginLeft:'47vw', marginBottom:'5vh'}} onClick={handleReturnToText}>Return to Text</Button>
         <WordCard 
           word={word}
-          bookId={reverseBookId[bookId]}
+          revBookId={reverseBookId[bookId]}
+          bookId={bookId}
           chapterNumber={chapterNumber}
           verseNumber={verseNumber}
           morphology={wordData}

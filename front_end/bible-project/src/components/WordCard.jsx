@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-function WordCard({id, word, morphology, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
+function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const AddWord = async () => {
@@ -65,7 +66,7 @@ function WordCard({id, word, morphology, bookId, chapterNumber, verseNumber, mor
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'green'}}>{word}</Card.Title>
-        <Card.Text>Reference: {bookId} {chapterNumber}:{verseNumber} <br/> Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: <Link to={`http://localhost:5173/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
         <Button
           variant="warning"
           onClick={() => {
