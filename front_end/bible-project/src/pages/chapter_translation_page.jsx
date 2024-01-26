@@ -8,13 +8,13 @@ import Loader from '../components/Loader';
 const ChapterTranslationPage = () => {
   const [chapterTranslation, setChapterTranslation] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { chapterNumber } = useParams();
+  const { bookId, chapterNumber } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const getChapterTranslation = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/chapter/${chapterNumber}/translation/`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/translation/`);
         setChapterTranslation(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -24,10 +24,10 @@ const ChapterTranslationPage = () => {
     };
 
     getChapterTranslation();
-  }, [chapterTranslation]);
+  }, [chapterNumber]);
 
   const handleNavToGreek = () => {
-    navigate(`/chapter/${chapterNumber}/`); 
+    navigate(`/${bookId}/chapter/${chapterNumber}/`);
 
   }
  
@@ -55,18 +55,3 @@ export default ChapterTranslationPage;
 
 
 
-
-// const Translation = () => {
-//     return (
-//       <div id="home-page">
-//         <h2>Translation</h2>
-//         <div>
-//           <p>
-//            English translation of chapter in Luke displayed here.
-//           </p>
-//         </div>
-//       </div>
-//     );
-//   };
-  
-//   export default Translation;

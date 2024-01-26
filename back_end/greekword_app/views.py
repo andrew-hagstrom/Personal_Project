@@ -44,7 +44,7 @@ class GW(UserPermissions):
 
     def post(self, request, word):
         wordbank= WordBank.objects.get(user=request.user)
-        new_wordbank_word = GreekWord(word=word, morphology=request.data.get('morphology'), word_bank=wordbank)
+        new_wordbank_word = GreekWord(word=word, morphology=request.data.get('morphology'), word_bank=wordbank, bookId=request.data.get('bookId'), chapterNumber=request.data.get('chapterNumber'), verseNumber=request.data.get('verseNumber'))
         new_wordbank_word.save()
         return Response(f'{new_wordbank_word} has been added to your word bank', status=HTTP_201_CREATED)
     

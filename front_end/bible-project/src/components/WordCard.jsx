@@ -1,15 +1,21 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useNavigate, useParams } from "react-router-dom";
 
-function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorites }) {
+function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const AddWord = async () => {
     try {
-      let data = {morphology:morphology}
+      let data = 
+      {
+        morphology:morphology,
+        bookId: bookId,
+        chapterNumber: chapterNumber,
+        verseNumber: verseNumber
+      }
       let token = localStorage.getItem("token")
       axios.defaults.headers.common['Authorization'] = `Token ${token}`;
       const response = await axios
@@ -60,7 +66,7 @@ function WordCard({id, word, morphology, morphologyLoaded, favorites, setFavorit
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'green'}}>{word}</Card.Title>
-        <Card.Text>Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: <Link to={`http://localhost:5173/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
         <Button
           variant="warning"
           onClick={() => {

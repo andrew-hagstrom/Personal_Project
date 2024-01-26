@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import '../App.css';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import WordCardBank from '../components/WordCardBankPage';
 import { useOutletContext } from 'react-router-dom';
+import {reverseBookId} from '../components/new_testament_books.jsx';
 
 const WordBankPage = () => {
   const { favorites, setFavorites } = useOutletContext();
@@ -47,6 +48,10 @@ const WordBankPage = () => {
         <WordCardBank 
           key={favorite.id}
           word={favorite.word}
+          bookId={favorite.bookId}
+          revBookId={reverseBookId[favorite.bookId]}
+          chapterNumber={favorite.chapterNumber}
+          verseNumber={favorite.verseNumber}
           morphology={favorite.morphology}
           favorites={favorites}
           setFavorites={setFavorites}

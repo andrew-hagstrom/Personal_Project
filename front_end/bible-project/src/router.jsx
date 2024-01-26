@@ -4,6 +4,7 @@ import Home from "./pages/home_page";
 import WordBankPage from "./pages/word_bank_page";
 import ChapterPage from "./pages/chapter_page";
 import ChapterTranslationPage from './pages/chapter_translation_page';
+import VerseTranslationPage from './pages/verse_translation_page';
 import VersePage from "./pages/verse_page";
 // import {Translation} from "./pages/chapter_translation_page";
 import {Register} from "./pages/register_page";
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
         element: <LogIn/>,
       },
       {
-        path: "chapter/:chapterNumber/",
+        path: ":bookId/chapter/:chapterNumber/",
         element: <ChapterPage/>,
       },
       {
-        path: "chapter/:chapterNumber/verse/:verseNumber/",
+        path: ":bookId/chapter/:chapterNumber/verse/:verseNumber/",
         element: <VersePage/>,
       },
       {
@@ -44,8 +45,12 @@ const router = createBrowserRouter([
         element: <WordBankPage/>,
       },
       {
-        path: "chapter/:chapterNumber/translation/",
+        path: ":bookId/chapter/:chapterNumber/translation/",
         element: <ChapterTranslationPage/>,
+      },
+      {
+        path: ":bookId/chapter/:chapterNumber/verse/:verseNumber/translation/",
+        element: <VerseTranslationPage/>,
       },
     ],
   },

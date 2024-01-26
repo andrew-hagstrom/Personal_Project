@@ -7,13 +7,13 @@ const Home = () => {
       <div style={{ margin: '100px', color: 'darkgreen', fontSize: '20px', border:'5px solid'}}>
         <div style={{margin:'20px'}}>
         <h3>
-          Welcome to MorphMaster, a Greek Morphology Application designed for the study of the New Testament Gospel of Luke!
+          Welcome to MorphMaster, a Greek Morphology Application designed for the study of the Greek New Testament!
         </h3>
         <p>
         This app is designed to facilitate the study of word morphology in the Greek New Testament. You will be able to study the Greek words and add them to a word bank for your study needs.
         </p>
         <p>
-        Use the dropdown boxes on the navbar to search through the Gospel of Luke by chapter or verse or click on one of the chapter links below. Simply click on a word in the Greek text to generate a word card that you can add to your own personal wordbank. You may also navigate to the English translation of the text from the links below or from the Greek chapter pages.
+        Use the dropdown boxes on the navbar to search through the Greek New Testament by chapter or verse or click on one of the chapter links below. Simply click on a word in the Greek text to generate a word card that you can add to your own personal wordbank. You may also navigate to the English translation of the text from the links below or from the Greek chapter pages.
         </p>
         {/* <h4>Greek Chapters</h4>
         <p>
