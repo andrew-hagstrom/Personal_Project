@@ -45,7 +45,7 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
     RemoveWord()};
 
   const addToFavorites = () => {
-    setFavorites([...favorites, { id, word, morphology }]);
+    setFavorites([...favorites, { id, word, morphology, bookId, chapterNumber, verseNumber }]);
     setIsFavorite(true);
     AddWord()};
 
