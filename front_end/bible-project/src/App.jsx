@@ -43,7 +43,11 @@ export default function App() {
     <Container>
       <Row style={{ textAlign: "center" }}>
       </Row>
-      {user ? <Navbar/>
+      {user ?  
+        <>
+        <Navigate to="/" />
+        <Navbar />
+      </>
       : <Navigate to="login/" />
     }
     <Outlet context={{user, setUser, favorites, setFavorites}}/>
