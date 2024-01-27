@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from dotenv import dotenv_values
-import os
 
 env = dotenv_values(".env")
 
@@ -24,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("PRODUCTION_KEY")
+SECRET_KEY = 'django-insecure-3z!dm4(x!idbw^*&%6^&kfdz8*ui141w!q=^l5dg0*2l6un4!$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
