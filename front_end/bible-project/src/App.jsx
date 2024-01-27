@@ -33,7 +33,7 @@ export default function App() {
 
    // If the user is not logged in, navigate to the login page
   //  if (!user) {
-  //   return <Navigate to="login/" />;
+  //   return <Navigate to="/login/" />;
   // }
 
   console.log(user)
@@ -43,12 +43,8 @@ export default function App() {
     <Container>
       <Row style={{ textAlign: "center" }}>
       </Row>
-      {user ?  
-        <>
-        <Navigate to="/" />
-        <Navbar />
-      </>
-      : <Navigate to="login/" />
+      {user ? <Navbar/>
+      : <div></div>
     }
     <Outlet context={{user, setUser, favorites, setFavorites}}/>
     </Container>

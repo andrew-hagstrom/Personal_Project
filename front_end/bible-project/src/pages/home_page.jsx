@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <h2 style={{ position: 'relative', width: '100%', textAlign: 'center', marginTop: '20vh', color: 'darkgreen'}}>HOME</h2>
+      {/* <h2 style={{ position: 'relative', width: '100%', textAlign: 'center', marginTop: '20vh', color: 'darkgreen'}}>HOME</h2> */}
       <div style={{ margin: '100px', color: 'darkgreen', fontSize: '20px', border:'5px solid'}}>
         <div style={{margin:'20px'}}>
         <h3>
@@ -15,6 +15,8 @@ const Home = () => {
         <p>
         Use the dropdown boxes on the navbar to search through the Greek New Testament by chapter or verse or click on one of the chapter links below. Simply click on a word in the Greek text to generate a word card that you can add to your own personal wordbank. You may also navigate to the English translation of the text from the links below or from the Greek chapter pages.
         </p>
+        <p>In oder to start your journey, sign up here: <Link to ="/signup/">Sign Up</Link> </p>
+        <p>If you are already signed up, click here to Login: <Link to ="/login/">Login</Link></p>
         {/* <h4>Greek Chapters</h4>
         <p>
         <Link to='http://localhost:5173/chapter/1/'>Chapter 1</Link>{' / '}
