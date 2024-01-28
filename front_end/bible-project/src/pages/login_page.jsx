@@ -34,7 +34,7 @@ const LoginPage = () => {
   };
 
   const handleSignupClick = () => {
-    navigate("/signup/"); 
+    navigate("signup/"); 
   };
 
   return (
