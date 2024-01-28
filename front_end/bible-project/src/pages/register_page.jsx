@@ -22,7 +22,7 @@ export const Register = () => {
         const response = await api
             .post("/v1/users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
-
+            console.log("Response:", response);
         const userEmail = response.data.email; 
         const token = response.data.token;
 
