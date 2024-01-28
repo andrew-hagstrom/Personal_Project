@@ -32,12 +32,12 @@ DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 
-CORS_ALLOWED_ORIGINS = [
-    "http://morph-master.com",
+# CORS_ALLOWED_ORIGINS = [
+#     "http://morph-master.com",
     # Add other origins as needed
-]
+# ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
