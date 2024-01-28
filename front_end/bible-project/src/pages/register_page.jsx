@@ -16,6 +16,7 @@ export const Register = () => {
     const navigate = useNavigate();
 
     const signUp = async (e) => {
+        console.log('hello')
         e.preventDefault();
         navigate("/login/");
         const data = { email, password };
