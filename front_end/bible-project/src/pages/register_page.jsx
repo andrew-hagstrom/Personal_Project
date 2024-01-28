@@ -23,22 +23,30 @@ export const Register = () => {
         console.log(data)
         const response = await api
             .post("users/signup/", data)
-            .catch(err => console.log(`signup err ${err}`));
+            // .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
-        const userEmail = response.data.email; 
-        const token = response.data.token;
-
-
-        console.log(`signup success, email: ${userEmail}, token: ${token}`);
-
-        api.defaults.headers.common["Authorization"] = `Token ${token}`
-        localStorage.setItem("token", token);
-        localStorage.setItem("email", userEmail);
         
-        setUser(True)
+        if (response && response.data) {
+            const userEmail = response.data.email; 
+            const token = response.data.token;
+            
+            console.log(`signup success, email: ${userEmail}, token: ${token}`);
+
+            api.defaults.headers.common["Authorization"] = `Token ${token}`
+            localStorage.setItem("token", token);
+            localStorage.setItem("email", userEmail);
+            
+            setUser(True)
        
        
+    } else {
+        console.log('Response is undefined or does not contain data:', response);
     }
+    
+};
+
+
+
 
     const handleLoginClick = () => {
         navigate("/login/"); 
