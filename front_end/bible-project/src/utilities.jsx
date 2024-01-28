@@ -2,7 +2,9 @@ import axios from "axios";
 
 
 export const api = axios.create({
-    baseURL: "http://127.0.0.1:8000/api/",
+    baseURL: '18.119.29.248'
+    
+    // "http://127.0.0.1:8000/api/",
 });
 
 // const ROUTES = {
