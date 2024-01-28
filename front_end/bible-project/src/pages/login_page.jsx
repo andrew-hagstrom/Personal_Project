@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await userapi.post("login/", {
+    const response = await userapi.post("/login/", {
       email: email,
       password: password,
     });
@@ -34,7 +34,7 @@ const LoginPage = () => {
   };
 
   const handleSignupClick = () => {
-    navigate("signup/"); 
+    navigate("/signup/"); 
   };
 
   return (
