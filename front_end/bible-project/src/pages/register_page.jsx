@@ -20,7 +20,7 @@ export const Register = () => {
         navigate("/login/");
         const data = { email, password };
         const response = await api
-            .post("v1/users/signup/", data)
+            .post("/v1/users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
 
         const userEmail = response.data.email; 
