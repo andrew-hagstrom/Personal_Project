@@ -20,7 +20,7 @@ export const Register = () => {
         navigate("/login/");
         const data = { email, password };
         console.log('hello')
-        console.log(data)
+        console.log('Request Payload:', data);
         const response = await api
             .post("users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
