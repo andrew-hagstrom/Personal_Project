@@ -17,7 +17,7 @@ export const Register = () => {
 
     const signUp = async (e) => {
         e.preventDefault();
-        navigate("login/");
+        navigate("/login/");
         const data = { email, password };
         console.log('hello')
         console.log('Request Payload:', data);
