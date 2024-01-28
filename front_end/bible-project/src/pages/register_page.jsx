@@ -19,7 +19,7 @@ export const Register = () => {
         e.preventDefault();
         navigate("/login/");
         const data = { email, password };
-        console.log(data)
+        console.log('hello')
         const response = await api
             .post("/v1/users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
