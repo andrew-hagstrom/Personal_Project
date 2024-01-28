@@ -22,7 +22,7 @@ export const Register = () => {
         console.log('hello')
         console.log('Request Payload:', data);
         const response = await userapi
-            .post("signup/", data)
+            .post("signup", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
         
