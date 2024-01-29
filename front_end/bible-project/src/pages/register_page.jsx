@@ -25,19 +25,13 @@ export const Register = () => {
             .post("user/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
-
-        const userEmail = response.data.email; 
-        const token = response.data.token;
-
-        console.log(`signup success, email: ${userEmail}, token: ${token}`);
-
-        api.defaults.headers.common["Authorization"] = `Token ${token}`
-        localStorage.setItem("token", token);
-        localStorage.setItem("email", userEmail);
-        
-        setUser({ email: userEmail, token });
+ 
+        setUser(response.data.email);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("email", response.data.email);
+        api.defaults.headers.common["Authorization"] = `Token ${response.data.token}`
        
-       
+        console.log(`signup success, email: ${response.data.email}, token: ${response.data.token}`);
     }
 
     const handleLoginClick = () => {
