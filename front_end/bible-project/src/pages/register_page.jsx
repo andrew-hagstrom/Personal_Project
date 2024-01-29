@@ -25,8 +25,7 @@ export const Register = () => {
             .post("user/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
-
-        
+            
         const userEmail = response.data.email; 
         const token = response.data.token;
 
