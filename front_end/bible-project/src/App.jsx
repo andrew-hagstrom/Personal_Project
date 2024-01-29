@@ -6,7 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { useState, useEffect, createContext } from "react";
 import {Register} from "./pages/register_page";
 import Home from "./pages/home_page";
-import { userapi } from "./utilities";
+import { api } from "./utilities";
 
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
     let token = localStorage.getItem('token') 
     if (token) {
       userapi.defaults.headers.common['Authorization']=`Token ${token}`
-      let response = await userapi.get('/')
+      let response = await api.get('users/')
       setUser(response.data.email)
     }
   }
