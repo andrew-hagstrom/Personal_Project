@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Row from 'react-bootstrap/esm/Row';
 import axios from 'axios';
+import { api } from "../utilities";
 import Button from "react-bootstrap/Button";
 import Loader from '../components/Loader';
 
@@ -14,7 +15,7 @@ const VerseTranslationPage = () => {
   useEffect(() => {
     const getVerseTranslation = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/translation/`);
+        const response = await api.get(`book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/translation/`);
         setVerseTranslation(response.data);
         setIsLoading(false);
       } catch (error) {

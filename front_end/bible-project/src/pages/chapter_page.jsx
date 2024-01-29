@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/esm/Row';
 import axios from 'axios';
+import { api } from "../utilities";
 import { useNavigate} from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import Loader from '../components/Loader';
@@ -64,7 +65,7 @@ const ChapterPage = () => {
   useEffect(() => {
     const getChapter = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/`);
+        const response = await api.get(`book/${bookId}/chapter/${chapterNumber}/`);
         setChapter(response.data);
         setIsLoading(false);
       } catch (error) {

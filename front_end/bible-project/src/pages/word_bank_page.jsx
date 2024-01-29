@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import WordCardBank from '../components/WordCardBankPage';
 import { useOutletContext } from 'react-router-dom';
 import {reverseBookId} from '../components/new_testament_books.jsx';
+import { api } from "../utilities";
 
 const WordBankPage = () => {
   const { favorites, setFavorites } = useOutletContext();
@@ -18,7 +19,7 @@ const WordBankPage = () => {
       try {
         let token = localStorage.getItem("token")
         axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-        const response = await axios.get('http://127.0.0.1:8000/api/v1/wordbank/');
+        const response = await api.get('wordbank/');
        
         setFavorites(response.data);
         

@@ -1,6 +1,6 @@
 import Row from "react-bootstrap/esm/Row";
 import { Link, useParams } from "react-router-dom";
-import { userapi } from "../utilities";
+import { api } from "../utilities";
 import Button from "react-bootstrap/esm/Button";
 import Form from 'react-bootstrap/Form';
 import { useNavigate} from 'react-router-dom';
@@ -19,14 +19,14 @@ export const Navbar = ({user, setUser}) => {
      const email = localStorage.getItem('email');
 
     const logout = async() => {
-        let response = await api.post('logout/')
+        let response = await api.post('user/logout/')
         if (response.status == 204) {
             localStorage.removeItem('token')
             localStorage.removeItem('email')
             navigate('/login/');
             window.location.reload();
             setUser(null)
-            delete userapi.defaults.headers.common['Authorization']
+            delete api.defaults.headers.common['Authorization']
         } else {
             console.log("There was an error. Please try again.")
         }

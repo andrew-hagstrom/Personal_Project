@@ -21,13 +21,14 @@ const WordPage = () => {
   const {favorites, setFavorites} = useOutletContext()
   const [morphologyLoaded, setMorphologyLoaded] = useState(false)
   const navigate = useNavigate();
+  import { api } from "../utilities";
 
   useEffect(() => {
     const fetchWordData = async () => {
       try {
         let token = localStorage.getItem("token")
         axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/word/${word}/`);
+        const response = await api.get(`word/${word}/`);
         setWordData(response.data[1][1][0][2][1][0][1]);
         setMorphologyLoaded(true)
       

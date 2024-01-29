@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { api } from "../utilities";
 import Button from "react-bootstrap/Button";
 import Loader from '../components/Loader';
 
@@ -13,7 +14,7 @@ const VersePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/v1/book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`);
+        const response = await api.get(`book/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`);
         setVerseData(response.data);
         setIsLoading(false);
       } catch (error) {

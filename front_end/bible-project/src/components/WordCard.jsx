@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { api } from "../utilities";
 
 function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -18,8 +19,8 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
       }
       let token = localStorage.getItem("token")
       axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-      const response = await axios
-      .post(`http://127.0.0.1:8000/api/v1/word/${word}/`, data
+      const response = await api
+      .post(`word/${word}/`, data
       );
       console.log("Word added successfully:", response.data)
     } catch (error) {
@@ -31,8 +32,8 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
     try {
       let token = localStorage.getItem("token")
       axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-      const response = await axios
-      .delete(`http://127.0.0.1:8000/api/v1/word/${word}/`)
+      const response = await api
+      .delete(`word/${word}/`)
       console.log("Word removed successfully:", response.data)
     } catch (error) {
       console.error('Error removing word:', error);
