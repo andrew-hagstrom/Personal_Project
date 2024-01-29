@@ -10,7 +10,7 @@ import { api } from "./utilities";
 
 
 export default function App() {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(null)
   const navigate = useNavigate()
   const [favorites, setFavorites] = useState([])
 
