@@ -13,7 +13,7 @@ export const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const {setUser} = useOutletContext()
+    const [user, setUser] = useState(null);
 
     const signUp = async (e) => {
         e.preventDefault();
@@ -25,31 +25,18 @@ export const Register = () => {
             .post("users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
-        
-        if (response.status === 201) {
-                setUser(response.data.email);
-                localStorage.setItem("token", response.data.token);
-                api.defaults.headers.common[
-                "Authorization"
-                ] = `Token ${response.data.token}`;
-                navigate("/");
-        } else {
-                localStorage.clear()
-                alert ('something happened')
-        }
 
         
-        // const userEmail = response.data.email; 
-        // const token = response.data.token;
+        const userEmail = response.data.email; 
+        const token = response.data.token;
 
+        console.log(`signup success, email: ${userEmail}, token: ${token}`);
 
-        // console.log(`signup success, email: ${userEmail}, token: ${token}`);
-
-        // api.defaults.headers.common["Authorization"] = `Token ${token}`
-        // localStorage.setItem("token", token);
-        // localStorage.setItem("email", userEmail);
+        api.defaults.headers.common["Authorization"] = `Token ${token}`
+        localStorage.setItem("token", token);
+        localStorage.setItem("email", userEmail);
         
-        // setUser(true)
+        setUser(true)
        
        
     }
