@@ -19,7 +19,7 @@ export const Navbar = ({user, setUser}) => {
      const email = localStorage.getItem('email');
 
     const logout = async() => {
-        let response = await api.post('user/logout/')
+        let response = await api.post('logout/')
         if (response.status == 204) {
             localStorage.removeItem('token')
             localStorage.removeItem('email')

@@ -17,8 +17,8 @@ export default function App() {
   const getInfo = async() => {
     let token = localStorage.getItem('token') 
     if (token) {
-      userapi.defaults.headers.common['Authorization']=`Token ${token}`
-      let response = await api.get('user/')
+      api.defaults.headers.common['Authorization']=`Token ${token}`
+      let response = await api.get('/')
       setUser(response.data.email)
     }
   }

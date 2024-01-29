@@ -21,7 +21,9 @@ export const Register = () => {
         const data = { email, password }
         console.log('hello')
         console.log('Request Payload:', data);
-        const response = await api.post("user/signup/", data).catch(err => console.log(`signup err ${err}`));
+        const response = await api
+            .post("signup/", data)
+            .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
 
         const userEmail = response.data.email; 
