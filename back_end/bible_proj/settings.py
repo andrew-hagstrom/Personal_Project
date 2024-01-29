@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ["*"]
 #     #Add other origins as needed
 # ]
 
-CORS_ALLOW_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS=True
 # Application definition
 
