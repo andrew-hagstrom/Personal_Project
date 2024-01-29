@@ -35,7 +35,7 @@ export const Register = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("email", userEmail);
         
-        setUser(userEmail)
+        setUser({ email: userEmail, token });
        
        
     }

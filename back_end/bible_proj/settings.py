@@ -46,13 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'user_app',
     'bibletext_app',
     'greekword_app',
     'wordbank_app',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
   
 ]
 
