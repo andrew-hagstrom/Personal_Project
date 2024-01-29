@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from "../utilities";
+import { api, userapi } from "../utilities";
 import { useNavigate, useLocation } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await api.post("login/", {
+    const response = await userapi.post("login/", {
       email: email,
       password: password,
     });

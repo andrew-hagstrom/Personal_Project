@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom"
 import Row from "react-bootstrap/esm/Row";
-import { api } from "../utilities";
+import { api, userapi } from "../utilities";
 import '../App.css';
 // import {userContext} from '../app';
 import Form from "react-bootstrap/Form";
@@ -21,7 +21,7 @@ export const Register = () => {
         const data = { email, password }
         console.log('hello')
         console.log('Request Payload:', data);
-        const response = await api
+        const response = await userapi
             .post("signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);

@@ -1,6 +1,6 @@
 import Row from "react-bootstrap/esm/Row";
 import { Link, useParams } from "react-router-dom";
-import { api } from "../utilities";
+import { userapi } from "../utilities";
 import Button from "react-bootstrap/esm/Button";
 import Form from 'react-bootstrap/Form';
 import { useNavigate} from 'react-router-dom';
