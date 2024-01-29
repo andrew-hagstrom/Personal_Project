@@ -13,16 +13,16 @@ export const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    const {setUser} = useOutletContext()
 
     const signUp = async (e) => {
         e.preventDefault();
         navigate("/login/");
-        let data = { email, password }
+        const data = { email, password }
         console.log('hello')
         console.log('Request Payload:', data);
-        let response = await api
-            .post("users/signup/", data)
+        const response = await api
+            .post("user/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
 

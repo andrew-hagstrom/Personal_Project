@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await api.post("users/login/", {
+    const response = await api.post("user/login/", {
       email: email,
       password: password,
     });

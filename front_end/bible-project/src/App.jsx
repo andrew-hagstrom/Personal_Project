@@ -18,7 +18,7 @@ export default function App() {
     let token = localStorage.getItem('token') 
     if (token) {
       userapi.defaults.headers.common['Authorization']=`Token ${token}`
-      let response = await api.get('users/')
+      let response = await api.get('user/')
       setUser(response.data.email)
     }
   }
