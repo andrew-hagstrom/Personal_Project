@@ -9,6 +9,7 @@ import Card from "react-bootstrap/Card";
 import { useOutletContext } from "react-router-dom";
 import WordCard from '../components/WordCard.jsx';
 import {reverseBookId} from '../components/new_testament_books.jsx';
+import { api } from "../utilities";
 
 const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
@@ -21,7 +22,6 @@ const WordPage = () => {
   const {favorites, setFavorites} = useOutletContext()
   const [morphologyLoaded, setMorphologyLoaded] = useState(false)
   const navigate = useNavigate();
-  import { api } from "../utilities";
 
   useEffect(() => {
     const fetchWordData = async () => {
