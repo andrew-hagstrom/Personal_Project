@@ -29,11 +29,10 @@ SECRET_KEY = env.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://morph-master.com",
+    "http://morph-master.com/",
     #Add other origins as needed
 ]
 
