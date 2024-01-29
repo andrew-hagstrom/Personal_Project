@@ -8,20 +8,20 @@ import '../App.css';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+
 export const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-
     const navigate = useNavigate();
+    const {setUser} = useOutletContext()
 
     const signUp = async (e) => {
         e.preventDefault();
         navigate("/login/");
-        const data = { email, password };
+        let data = { "email": email, "password": password, };
         console.log('hello')
         console.log('Request Payload:', data);
-        const response = await api
+        let response = await api
             .post("users/signup/", data)
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
@@ -37,7 +37,7 @@ export const Register = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("email", userEmail);
         
-        setUser(True)
+        setUser(true)
        
        
     }
