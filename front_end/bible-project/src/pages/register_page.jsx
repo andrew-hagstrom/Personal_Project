@@ -18,7 +18,7 @@ export const Register = () => {
     const signUp = async (e) => {
         e.preventDefault();
         navigate("/login/");
-        let data = { "email": email, "password": password, };
+        let data = { email, password };
         console.log('hello')
         console.log('Request Payload:', data);
         let response = await api
@@ -37,7 +37,7 @@ export const Register = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("email", userEmail);
         
-        setUser(True)
+        setUser(userEmail)
        
        
     }
