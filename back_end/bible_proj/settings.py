@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from dotenv import dotenv_values
-import os
+env = dotenv_values(".env")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,15 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-
-env = dotenv_values(".env")
 
 # SECRET_KEY = env.get("SECRET_KEY")
-SECRET_KEY=os.environ.get("SECRET_KEY")
+SECRET_KEY=env.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -37,7 +34,8 @@ ALLOWED_HOSTS = ["*"]
 #     #Add other origins as needed
 # ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS=True
 # Application definition
 
 INSTALLED_APPS = [
