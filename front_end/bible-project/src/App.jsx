@@ -31,11 +31,6 @@ export default function App() {
     console.log(favorites)
   }, [favorites])
 
-   // If the user is not logged in, navigate to the login page
-  //  if (!user) {
-  //   return <Navigate to="/login/" />;
-  // }
-
   console.log(user)
   return (
      <>
