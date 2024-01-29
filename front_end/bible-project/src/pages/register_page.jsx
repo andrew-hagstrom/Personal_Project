@@ -18,7 +18,7 @@ export const Register = () => {
     const signUp = async (e) => {
         e.preventDefault();
         navigate("/login/");
-        let data = { email, password };
+        let data = { email, password }
         console.log('hello')
         console.log('Request Payload:', data);
         let response = await api
@@ -26,18 +26,30 @@ export const Register = () => {
             .catch(err => console.log(`signup err ${err}`));
             console.log("Response:", response);
         
+        if (response.status === 201) {
+                setUser(response.data.email);
+                localStorage.setItem("token", response.data.token);
+                api.defaults.headers.common[
+                "Authorization"
+                ] = `Token ${response.data.token}`;
+                navigate("/");
+        } else {
+                localStorage.clear()
+                alert ('something happened')
+        }
+
         
-        const userEmail = response.data.email; 
-        const token = response.data.token;
+        // const userEmail = response.data.email; 
+        // const token = response.data.token;
 
 
-        console.log(`signup success, email: ${userEmail}, token: ${token}`);
+        // console.log(`signup success, email: ${userEmail}, token: ${token}`);
 
-        api.defaults.headers.common["Authorization"] = `Token ${token}`
-        localStorage.setItem("token", token);
-        localStorage.setItem("email", userEmail);
+        // api.defaults.headers.common["Authorization"] = `Token ${token}`
+        // localStorage.setItem("token", token);
+        // localStorage.setItem("email", userEmail);
         
-        setUser(userEmail)
+        // setUser(true)
        
        
     }
