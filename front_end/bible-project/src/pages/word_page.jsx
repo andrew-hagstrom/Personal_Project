@@ -28,11 +28,9 @@ const WordPage = () => {
         let token = localStorage.getItem("token")
         api.defaults.headers.common['Authorization'] = `Token ${token}`;
         const response = await api.get(`word/${word}/`);
-        setWordData(response.data);
+        setWordData(response.data[1][1][0][2][1][0][1]);
         console.log(data)
-          // [1][1][0][2][1][0][1]);
         setMorphologyLoaded(true)
-      
       } catch (error) {
         console.error('Error fetching word data:', error);
       }   
