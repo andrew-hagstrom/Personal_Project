@@ -23,6 +23,7 @@ class GW(UserPermissions):
 
     def get(self, request, word):
         api_key = env.get('OPENAI_API_KEY')
+        print(api_key)
         
         client = OpenAI(api_key=api_key)
         
