@@ -18,7 +18,7 @@ const WordBankPage = () => {
     const fetchWordBankData = async () => {
       try {
         let token = localStorage.getItem("token")
-        axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+        api.defaults.headers.common['Authorization'] = `Token ${token}`;
         const response = await api.get('wordbank/');
        
         setFavorites(response.data);
