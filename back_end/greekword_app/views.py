@@ -1,12 +1,12 @@
 import requests
-from openai import OpenAI
 import re
 from rest_framework import serializers
 from django.shortcuts import render
 from django.db import models
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from bible_proj.settings import env  
+from bible_proj.settings import env
+from openai import OpenAI 
 from .models import GreekWord
 from user_app.views import UserPermissions
 from wordbank_app.models import WordBank
