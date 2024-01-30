@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -12,7 +12,7 @@ function WordCardBank({id, word, revBookId, bookId, chapterNumber, verseNumber, 
   const RemoveWord= async () => {
     try {
       let token = localStorage.getItem("token")
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      api.defaults.headers.common['Authorization'] = `Token ${token}`;
       const response = await api
       .delete(`word/${word}/`)
       console.log("Word removed successfully:", response.data)

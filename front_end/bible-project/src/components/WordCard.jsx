@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
@@ -18,7 +18,7 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
         verseNumber: verseNumber
       }
       let token = localStorage.getItem("token")
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      api.defaults.headers.common['Authorization'] = `Token ${token}`;
       const response = await api
       .post(`word/${word}/`, data
       );
@@ -31,7 +31,7 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
   const RemoveWord= async () => {
     try {
       let token = localStorage.getItem("token")
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      api.defaults.headers.common['Authorization'] = `Token ${token}`;
       const response = await api
       .delete(`word/${word}/`)
       console.log("Word removed successfully:", response.data)
