@@ -47,7 +47,7 @@ function WordCardBank({id, word, revBookId, bookId, chapterNumber, verseNumber, 
     <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'forestgreen'}}>{word}</Card.Title>
-        <Card.Text>Reference: <Link to={`http://morph-master.com/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: <Link to={`https://morph-master.com/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
         <Button
           style={{color:'red'}}
           variant="warning"
