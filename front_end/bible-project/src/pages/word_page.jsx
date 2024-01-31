@@ -29,7 +29,7 @@ const WordPage = () => {
         api.defaults.headers.common['Authorization'] = `Token ${token}`;
         const response = await api.get(`word/${word}/`);
         // setWordData(response.data[1][1][1]);
-        setWordData(response.data[1][1][0][2][1][0][1]);
+        setWordData(response.data[1][2][3][4][5][6][7]);
         setMorphologyLoaded(true)
       } catch (error) {
         console.error('Error fetching word data:', error);
