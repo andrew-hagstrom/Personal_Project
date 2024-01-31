@@ -13,6 +13,7 @@ import Loader from '../components/Loader';
 
 const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
+  const [isLoading, setIsLoading] = useState(true);
   const { word } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
