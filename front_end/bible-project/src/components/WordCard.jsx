@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import { api } from "../utilities";
 
 function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(InitialIsFavorite);
 
   const AddWord = async () => {
     try {

@@ -40,7 +40,8 @@ const WordPage = () => {
     fetchWordData();
   }, [word]);
 
-
+  // Determine initial isFavorite state based on whether the word is in favorites
+  const initialIsFavorite = favorites.some((favorite) => favorite.word === word);
 
   const handleReturnToText = () => {
     navigate(-1);
@@ -62,6 +63,7 @@ const WordPage = () => {
           morphologyLoaded = {morphologyLoaded}
           favorites={favorites}
           setFavorites={setFavorites}
+          initialIsFavorite={initialIsFavorite}
         /></div>
     </>
   );
