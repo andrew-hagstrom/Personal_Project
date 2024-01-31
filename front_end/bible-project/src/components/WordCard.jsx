@@ -63,11 +63,11 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
   }, []);
 
   return (
-    // <div style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>
-    <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan", overflow: "hidden" }}>
+    <div style={{ justifyContent:'center', marginLeft: '40vw'}}>
+    <Card style={{ width: "18rem", margin: "1vmin", backgroundColor: "tan"}>
       <Card.Body>
         <Card.Title style={{fontSize:'20px',fontWeight:'bold', color:'green'}}>{word}</Card.Title>
-        <Card.Text style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>Reference: <Link to={`https://morph-master.com/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
+        <Card.Text>Reference: <Link to={`https://morph-master.com/${bookId}/chapter/${chapterNumber}/verse/${verseNumber}/`}>{revBookId} {chapterNumber}:{verseNumber}</Link><br/> Morphology: {morphology}</Card.Text>
         <Button
           variant="warning"
           onClick={() => {
@@ -78,7 +78,7 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
         </Button>
       </Card.Body>
     </Card>
-    // </div>
+    </div>
   );
 }
 
