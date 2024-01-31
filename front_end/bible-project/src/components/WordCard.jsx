@@ -60,7 +60,7 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
     } else {
       setIsFavorite(false);
     }
-  }, [word, favorites]);
+  }, [id, word, favorites]);
 
   return (
     <div style={{ justifyContent:'center', marginLeft: '40vw'}}>
