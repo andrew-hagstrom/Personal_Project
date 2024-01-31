@@ -12,13 +12,13 @@ import { api } from "../utilities";
 
 const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
-  // const { word } = useParams();
+  const { word } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const bookId = queryParams.get('book');
   const chapterNumber = queryParams.get('chapter');
   const verseNumber = queryParams.get('verse');
-  const word = queryParams.get('cleanedClickedWord')
+  // const word = queryParams.get('cleanedClickedWord')
   const {favorites, setFavorites} = useOutletContext()
   const [morphologyLoaded, setMorphologyLoaded] = useState(false)
   const navigate = useNavigate();
