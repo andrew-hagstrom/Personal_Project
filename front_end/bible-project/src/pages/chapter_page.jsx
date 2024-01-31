@@ -25,7 +25,7 @@ const ChapterPage = () => {
   
     if (verseNumber !== null) {
       navigate(`/word/${cleanedClickedWord}/?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`);
-      // window.location.reload();
+      window.location.reload();
     } else {
       console.error(`Verse number not found for ${cleanedClickedWord}`);
       // Log the words in the chapter to see if there's an issue with the regex

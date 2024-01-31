@@ -9,11 +9,9 @@ import { useOutletContext } from "react-router-dom";
 import WordCard from '../components/WordCard.jsx';
 import {reverseBookId} from '../components/new_testament_books.jsx';
 import { api } from "../utilities";
-import Loader from '../components/Loader';
 
 const WordPage = () => {
   const [wordData, setWordData] = useState([null]);
-  const [isLoading, setIsLoading] = useState(true);
   const { word } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
@@ -51,7 +49,6 @@ const WordPage = () => {
  
   return (
     <>
-      {isLoading ? (<Loader />) : (
      <div >
       <h2 style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>{word}</h2>
       <Button style={{ display:'flex', justifyContent:'center', marginLeft:'50vw', marginBottom:'5vh'}} onClick={handleReturnToText}>Return to Text</Button>
@@ -66,7 +63,6 @@ const WordPage = () => {
           favorites={favorites}
           setFavorites={setFavorites}
         /></div>
-      )}
     </>
   );
 };
