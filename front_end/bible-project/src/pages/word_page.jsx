@@ -30,7 +30,6 @@ const WordPage = () => {
         const response = await api.get(`word/${word}/`);
         setWordData(response.data[1][1][0][3][1][0][1]);
         // setWordData(response.data[1][1][0][2][1][0][1]);
-        setIsLoading(false);
         setMorphologyLoaded(true)
       } catch (error) {
         console.error('Error fetching word data:', error);
