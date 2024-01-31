@@ -40,17 +40,15 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
     }
   };
 
-  const removeFavorite = async() => {
-    setFavorites((prevFavorites) => prevFavorites.filter((favorite) => favorite.id !== id));
-    await RemoveWord()
+  const removeFavorite = () => {
+    setFavorites(favorites.filter((favorite) => favorite.id !== id));
     setIsFavorite(false);
-   };
+    RemoveWord()};
 
-  const addToFavorites = async() => {
-    setFavorites((prevFavorites) => [...prevFavorites, { id, word, morphology, bookId, chapterNumber, verseNumber }]);
-    await AddWord()
+  const addToFavorites = () => {
+    setFavorites([...favorites, { id, word, morphology, bookId, chapterNumber, verseNumber }]);
     setIsFavorite(true);
-    };
+    AddWord()};
 
   const inFavorites = () => {
     return favorites.filter((favorite) => favorite.id === id);

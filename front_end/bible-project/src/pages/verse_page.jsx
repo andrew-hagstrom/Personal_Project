@@ -26,8 +26,8 @@ const VersePage = () => {
   }, [chapterNumber, verseNumber]);
 
   const handleWordClick = (word) => {
-    const cleanedWord = word.replace(/[.,;:]/g, '');
-    navigate(`/word/${cleanedWord}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`);
+    const cleanedClickedWord = word.replace(/[.,;:]/g, '');
+    navigate(`/word/${cleanedClickedWord}?book=${bookId}&chapter=${chapterNumber}&verse=${verseNumber}`);
     // window.location.reload();
   };
 
