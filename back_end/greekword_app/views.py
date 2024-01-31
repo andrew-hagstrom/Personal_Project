@@ -38,6 +38,7 @@ class GW(UserPermissions):
                     {"role": "user", "content": f"Provide the Greek morphology of the following word: {word}. First, give the transliteration, definition, and part of speech. If it is a noun or adjective or participle, provide case, number (singular or plural), gender. If it is a verb, provide mood, tense, person, number (singular or plural), voice."}
                 ]
             )
+            print(response)
             return Response(response, status=HTTP_200_OK)
         else: 
             return Response({"message": "This is not a Greek Word."}, status=HTTP_204_NO_CONTENT)
