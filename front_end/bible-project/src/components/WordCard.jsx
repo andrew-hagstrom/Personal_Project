@@ -42,12 +42,12 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
 
   const removeFavorite = () => {
     setFavorites(favorites.filter((favorite) => favorite.id !== id));
-    setIsFavorite(false);
+    // setIsFavorite(false);
     RemoveWord()};
 
   const addToFavorites = () => {
     setFavorites([...favorites, { id, word, morphology, bookId, chapterNumber, verseNumber }]);
-    setIsFavorite(true);
+    // setIsFavorite(true);
     AddWord()};
 
   const inFavorites = () => {
@@ -55,12 +55,18 @@ function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verse
   };
 
   useEffect(() => {
-    if (inFavorites().length) {
-      setIsFavorite(true);
-    } else {
-      setIsFavorite(false);
+    if (initialIsFavorite !== isFavorite) {
+      setIsFavorite(initialIsFavorite);
     }
-  }, [id, word, favorites]);
+  }, [initialIsFavorite]);
+
+  // useEffect(() => {
+  //   if (inFavorites().length) {
+  //     setIsFavorite(true);
+  //   } else {
+  //     setIsFavorite(false);
+  //   }
+  // }, [id, word, favorites]);
 
   return (
     <div style={{ justifyContent:'center', marginLeft: '40vw'}}>
