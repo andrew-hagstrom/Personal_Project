@@ -39,7 +39,7 @@ class GW(UserPermissions):
                 ]
             )
             print(response)
-            return Response(response, status=HTTP_200_OK)
+            return Response(response[1][1][0][2][1][0][1][2][0][1], status=HTTP_200_OK)
         else: 
             return Response({"message": "This is not a Greek Word."}, status=HTTP_204_NO_CONTENT)
     
