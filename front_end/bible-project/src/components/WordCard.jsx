@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { api } from "../utilities";
 
-function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites }) {
-  const [isFavorite, setIsFavorite] = useState(InitialIsFavorite);
+function WordCard({id, word, morphology, revBookId, bookId, chapterNumber, verseNumber, morphologyLoaded, favorites, setFavorites, initialIsFavorite }) {
+  const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
 
   const AddWord = async () => {
     try {
