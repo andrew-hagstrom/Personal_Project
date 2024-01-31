@@ -50,7 +50,7 @@ const WordPage = () => {
     <>
      <div >
       <h2 style={{ display:'flex', justifyContent:'center', marginLeft: '40vw'}}>{word}</h2>
-      <Button style={{ display:'flex', justifyContent:'center', marginLeft:'40vw', marginBottom:'5vh'}} onClick={handleReturnToText}>Return to Text</Button>
+      <Button style={{ display:'flex', justifyContent:'center', marginLeft:'50vw', marginBottom:'5vh'}} onClick={handleReturnToText}>Return to Text</Button>
         <WordCard 
           word={word}
           revBookId={reverseBookId[bookId]}
